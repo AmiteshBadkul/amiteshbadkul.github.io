@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Computational Life Sciences Enthusiast. Photographer.
+subtitle: Computational Sciences Enthusiast. Photographer. F1 Geek.
 
 profile:
   align: right
