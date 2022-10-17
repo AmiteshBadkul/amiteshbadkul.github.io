@@ -6,7 +6,7 @@ subtitle: Computational Sciences Enthusiast. Photographer. F1 Geek.
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: profile.png
   image_circular: false # crops the image to make it circular
   address: >
     <p>New York City, NY</p>
