@@ -5,6 +5,7 @@ description: Running a Simple Molecular Dynamic Simulation using VMD and NAMD
 img: assets/img/12.jpg
 importance: 1
 category: work
+---
 
 About simple molecular dynamic simulation.
 
