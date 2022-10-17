@@ -36,51 +36,63 @@
       description:
         - Working on developing deep generative models for synthesis of novel compounds under the supervision of Dr Ashif Iquebal.
 
-
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
+    - title: Undergraduate Research Assistant
+      institution: Department of Pharmacology, BITS Pilani, Hyderabad, India.
+      year: June 2021 - Present
       description:
+        - Rat eye pupillometry project under the supervision of Dr Srinivas Prasad K.
+        - Developed novel algorithm for tracking and measuring the rat eye pupil in images and videos using image and video processing techniques.
+        - Developed and trained machine learning models for tracking and measuring the rat eye pupil.
 
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
 
-- title: Open Source Projects
-  type: time_table
-  contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+    - title: Undergraduate Research Assistant
+      institution: Department of Chemistry, BITS Pilani, Hyderabad, India
+      year: August 2021 - May 2022
+      description:
+        - Working under the supervision of Dr. Durba Roy in Molecular Dynamic Simulation.
+        - Modelled a water box cube and carried out MD simulation for 20 nanoseconds. Performed statistical analysis on the output position, velocity, and energy data obtained.
+        - Developed algorithm for calculating the Mean Square Displacement and Diffusion Coefficient of the water system. Explored the Reaction Center of Rhodobacter Sphaeroides.
+
+    - title: Undergraduate Research Assistant
+      institution: Department of Electrical and Electronics Engineering, BITS Pilani, Hyderabad, India
+      year:  February 2021 - April 2022
+      description:
+        - Biomedical Imaging Project under the supervision of Dr. Sudha Radhika. Fine-tuned various pretrained models such as ResNet, MobileNet, Xception, and VGG for classification of Chest X-Ray Scan (CXR) and achieved an accuracy of 97%. Developed CXR enhancement algorithm using image processing, and improved the accuracy of the previously fine-tuned model by 2%.
+        - Creation of a novel dataset by extraction of various statistical descriptors after performing wavelet transform on the RGB and gray channel individually. Implementation of classification algorithms such as Multiclass Logistic Regression, Random Forests and XGBoost, obtaining 92%, 94% and 95% accuracy respectively.
+
+    - title: Research Intern
+      institution: Sensordrops Networks, IIT Kharagpur, Kharagpur, India
+      year:  December 2020 - March 2021
+      description:
+        - Worked under the supervision of Dr. Sudip Misra, developed a Graph Neural Networks (GNNs) based algorithm for Contact Tracing of COVID-19 patients. Created a novel Twitter dataset for training and testing. Used Twitter metadata as features and deployed the GNN model using Python. Obtained accuracy of 92.3%
 
 - title: Honors and Awards
   type: time_table
   contents:
-    - year: 1921
+    - year: 2018 - Present
       items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
+        - Scholarship for Higher Education Recipient of Scholarship for Higher Education provided by the Indian Government for
+excellence in academics Higher Secondary School Board examination, given to the top 1% of students, held in month of March
+2018 in India.
+    - year: 2018 - Present
       items:
-        - Max Planck Medal
+        - Scholarship for Practice School - 1 (held in the summer of 2020), industry exposure program, given to the students with
+excellent performance (grade ’A’) in the industry provided by BITS Pilani.
 
 - title: Academic Interests
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: Computational Sciences.
       items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
+        - Bioinformatics.
+        - Cheminformatics.
+    - title: Image Processing.
       items:
-        - Description 1.
-        - Description 2.
+        - Image Segmentation.
+        - Computer Vision.
+    - title: Molecular Dynamic Simulation.
 
 - title: Other Interests
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - <u>Hobbies:</u> Photography, Cinematography, Squash, Basketball, Volleyball, Formula1.
