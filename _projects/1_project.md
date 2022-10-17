@@ -256,5 +256,5 @@ The files for replicating the simulation are available [here](https://github.com
 ## References
 1. [Basic molecular dynamics](http://li.mit.edu/A/Papers/05/Li05-2.8.pdf)
 2. [Introduction to Atomistic Simulations](http://people.virginia.edu/~lz2n/mse627/Eduardo)
-3. [ntroduction to Molecular Dynamics Simulation - Michael P. Allen](https://static.igem.org/mediawiki/2009/3/3e/Introduction_to_molecular_Dynamics_Simulation.pdf)
+3. [Introduction to Molecular Dynamics Simulation - Michael P. Allen](https://static.igem.org/mediawiki/2009/3/3e/Introduction_to_molecular_Dynamics_Simulation.pdf)
 4. [Molecular Dynamics- Goran Wahnstrom](http://fy.chalmers.se/~tfsgw/CompPhys/lectures/MD_LectureNotes_181111.pdf)
