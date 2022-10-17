@@ -1,7 +1,7 @@
 ---
 layout: page
-title: project 1
-description: a project with a background image
+title: Learnings from Molecular Dynamic Simulation
+description: Running a Simple Molecular Dynamic Simulation using VMD and NAMD
 img: assets/img/12.jpg
 importance: 1
 category: work
