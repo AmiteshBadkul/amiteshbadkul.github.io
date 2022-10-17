@@ -26,10 +26,7 @@
       year: June 2022 - Present
       description:
         - Working on developing Graph Neural Networks for prediction of protein ligand interaction under the supervision of Dr. Lei Xie.
-#        - title: Libraries Used.
-#          contents:
-#            - Sub-description 1.
-#            - Sub-description 2.
+
     - title: Summer Research Intern
       institution: School of Computing, Informatics, and Decision Systems Engineering, Arizona State University
       year: June 2022 - Present
@@ -71,13 +68,10 @@
   contents:
     - year: 2018 - Present
       items:
-        - Scholarship for Higher Education Recipient of Scholarship for Higher Education provided by the Indian Government for
-excellence in academics Higher Secondary School Board examination, given to the top 1% of students, held in month of March
-2018 in India.
-    - year: 2018 - Present
+        - Scholarship for Higher Education Recipient of Scholarship for Higher Education provided by the Indian Government for excellence in academics Higher Secondary School Board examination, given to the top 1% of students, held in month of March 2018 in India.
+    - year: 2019
       items:
-        - Scholarship for Practice School - 1 (held in the summer of 2020), industry exposure program, given to the students with
-excellent performance (grade ’A’) in the industry provided by BITS Pilani.
+        - Scholarship for Practice School - 1 (held in the summer of 2020), industry exposure program, given to the students with excellent performance (grade ’A’) in the industry provided by BITS Pilani.
 
 - title: Academic Interests
   type: nested_list
