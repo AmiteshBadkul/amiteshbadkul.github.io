@@ -1,10 +1,11 @@
 github_users:
   - AmiteshBadkul
+  - XieResearchGroup
 
 github_repos:
-  - AmiteshBadkul/crypto-analysis-list
   - AmiteshBadkul/CYP3A4
-  - AmiteshBadkul/nnfl
-  - AmiteshBadkul/water-box
-  - AmiteshBadkul/chemotherapeutic-developments
-  - AmiteshBadkul/digital-image-processing
+  - XieResearchGroup/DISAE
+  - XieResearchGroup/PortalLearning
+  - CompVis/stable-diffusion
+  - DeepLabCut/DeepLabCut
+  - shenweichen/GraphNeuralNetwork
