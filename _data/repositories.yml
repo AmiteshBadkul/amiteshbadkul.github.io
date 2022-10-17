@@ -1,11 +1,11 @@
 github_users:
   - AmiteshBadkul
-  - XieResearchGroup
 
 github_repos:
   - AmiteshBadkul/CYP3A4
   - XieResearchGroup/DISAE
   - XieResearchGroup/PortalLearning
+  - ossu/bioinformatics
   - CompVis/stable-diffusion
   - DeepLabCut/DeepLabCut
   - shenweichen/GraphNeuralNetwork
