@@ -2,10 +2,9 @@ github_users:
   - AmiteshBadkul
 
 github_repos:
-  - AmiteshBadkul/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - AmiteshBadkul/crypto-analysis-list
+  - AmiteshBadkul/CYP3A4
+  - AmiteshBadkul/nnfl
+  - AmiteshBadkul/water-box
+  - AmiteshBadkul/chemotherapeutic-developments
+  - AmiteshBadkul/digital-image-processing
