@@ -2,7 +2,7 @@
 layout: page
 title: AI for HealthCare
 description: DCNN-based HealthCare Tool
-img:
+img: assets/img/covid.jpg
 importance: 4
 category: work
 ---
