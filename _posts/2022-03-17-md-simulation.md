@@ -1,10 +1,38 @@
 ---
-layout: post
+layout: distill
 title:  Learnings from Molecular Dynamic Simulation
 date:   2022-03-17 16:40:16
 description: understanding simple MD simulations
 tags: md vmd namd
 categories: molecular-dynamics
+
+authors:
+- name: Amitesh Badkul
+  url: "https://amiteshbadkul.github.io"
+  affiliations:
+    name: BITS Pilani, Hyderabad
+- name: Dr. Durba Roy (PI)
+  url: "https://universe.bits-pilani.ac.in/hyderabad/durba/Profile"
+  affiliations:
+    name: Department of Chemistry, BITS Pilani, Hyderabad
+
+toc:
+  - name: Introduction
+    # if a section has subsections, you can add them as follows:
+    # subsections:
+
+    #   - name: Example Child Subsection 2
+  - name: Computer Simulations
+       - name: NAMD
+       - name: VMD          
+  - name: Molecular Dynamics Simulation
+       - name: The Algorithm
+            - name: Lennard-Jones Potential
+            - name: Coulomb–Buckingham Potential            
+  - name: Water Box Simulation
+  - name: Files and Further Analysis
+  - name: References
+
 ---
 
 ## Introduction

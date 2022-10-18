@@ -1,10 +1,32 @@
 ---
-layout: post
+layout: distill
 title:  Fundamentals of CYP3A4 Binding
 date:   2022-03-25 09:23:16
 description: CYP3A4 inhibition prediction
 tags: cheminformatics ml dl
 categories: cheminformatics
+
+authors:
+- name: Amitesh Badkul
+  url: "https://amiteshbadkul.github.io"
+  affiliations:
+    name: BITS Pilani, Hyderabad
+
+toc:
+  - name: Introduction
+  - name: Dataset
+        - name: Dataset Curation
+  - name: Representation of the Compounds
+  - name: Chemical Space Exploration and Analysis
+  - name: Cleaning the Dataset
+  - name: Classification Models
+        - name: Evaluation Metrics
+        - name: Logistic Regression
+        - name: Random Forest Classifier
+        - name: XGBoost Classifier
+  - name: Discussion
+  - name: Future Work
+  - name: Code
 ---
 
 ## Introduction
