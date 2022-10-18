@@ -48,8 +48,8 @@ Characteristics of Molecular Dynamic Simulation include the following:
 3. It can be successfully be used as a statistical mechanics method
 4. The data recorded about the distances and the velocities can be averaged over time and over all the molecules of the system to obtain the thermodynamic quantities of the system
 5. It provides atomic and molecular level information on the system
-width="50%" height="50%"
-|<img src="https://i.imgur.com/zXjH2ec.png" width="50%" height="50%" />|
+
+|<img src="https://i.imgur.com/zXjH2ec.png" width="70%" />|
 |:--:|
 | *The Steps Involved in Molecular Dynamic Simulation* |
 
