@@ -125,7 +125,7 @@ decision trees present.
 2. Time required for training is more when compared to decision trees.
 
 <p align="center" width="100%">
-    <img width="75%" src="https://https://www.freecodecamp.org/news/content/images/2020/08/how-random-forest-classifier-work.PNG"><br >
+    <img width="75%" src="https://www.freecodecamp.org/news/content/images/2020/08/how-random-forest-classifier-work.PNG"><br >
     <i> Random Forest Classifier </i>
 </p>
 
