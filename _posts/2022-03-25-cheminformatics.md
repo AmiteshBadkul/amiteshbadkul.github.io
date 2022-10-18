@@ -15,15 +15,15 @@ authors:
 toc:
   - name: Introduction
   - name: Dataset
-        - name: Dataset Curation
+      - name: Dataset Curation
   - name: Representation of the Compounds
   - name: Chemical Space Exploration and Analysis
   - name: Cleaning the Dataset
   - name: Classification Models
-        - name: Evaluation Metrics
-        - name: Logistic Regression
-        - name: Random Forest Classifier
-        - name: XGBoost Classifier
+      - name: Evaluation Metrics
+      - name: Logistic Regression
+      - name: Random Forest Classifier
+      - name: XGBoost Classifier
   - name: Discussion
   - name: Future Work
   - name: Code
