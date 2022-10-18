@@ -56,14 +56,14 @@ To understand how exactly the algorithm for the ECFP fingerprint works consider 
 The dataset's chemical space was explored to understand better the various molecules present in the dataset as similar molecules are clustered together. In contrast, dissimilar ones are far from each other. We can also understand the similarity between the training, testing, and validation datasets. Principal component analysis or PCA is a commonly employed method to understand the chemical space. PCA is a dimensionality reduction technique that produces new variables using a linear combination of old variables that are better able to describe the dataset. We use the explained variance ratio metric to verify if PCA adequately retained the original variables' information. The higher the ratio, the more variance from the data is retained. To visualize the chemical space, we reduce the variables to two using PCA.
 
 <p align="center" width="100%">
-    <img width="50%" src="https://i.imgur.com/3OHCq27.png"><br >
+    <img width="75%" src="https://i.imgur.com/3OHCq27.png"><br >
     <i> PC1 and PC2 are the linear combinations of the previous variables </i>
 </p>
 
 PCA is a linear dimension reduction technique that cannot adequately explain the clustering of drugs. In contrast, T-distributed Stochastic Neighbor Embedding (t-SNE) is a non-linear dimensionality reduction technique that can explain the same. The math behind t-SNE is quite complex, but the idea is simple. It embeds the points from a higher dimension to a lower dimension trying to preserve the neighborhood of that point. t-SNE is better able to capture the extent of distribution of the compounds of the dataset.
 
 <p align="center" width="100%">
-    <img width="50%" src="https://i.imgur.com/keANY5J.png"><br >
+    <img width="75%" src="https://i.imgur.com/keANY5J.png"><br >
     <i> The t-SNE plot is generated such that 95% of the variance is retained </i>
 </p>
 
@@ -78,7 +78,7 @@ Removal of drug compounds from the dataset, as these drug compounds lead to mode
 2. Outlier removal using molecular weight as a descriptor - if the molecule has a  weight three times the standard deviations from the mean, it was flagged as an outlier.
 
 <p align="center" width="100%">
-    <img width="50%" src="https://i.imgur.com/4kTGoKo.png"><br >
+    <img width="75%" src="https://i.imgur.com/4kTGoKo.png"><br >
     <i> Histogram distribution after outlier removal </i>
 </p>
 
@@ -96,7 +96,7 @@ The following classification algorithms were deployed:
 For classification tasks, the logistic regression method is employed. It's a probabilistic prediction analysis algorithm. The logistic regression classifier is intended to provide us with a set of outputs or classifications depending on likelihood. We run the data through a prediction algorithm and get a likelihood score between 0 and 1.
 
 <p align="center" width="100%">
-    <img width="50%" src="https://i.imgur.com/N7Z0HVF.png"><br >
+    <img width="75%" src="https://i.imgur.com/N7Z0HVF.png"><br >
     <i> AUC - ROC of Logistic Regression of training, testing and validation </i>
 </p>
 
@@ -104,7 +104,7 @@ For classification tasks, the logistic regression method is employed. It's a pro
 Logistic Regression is a linear classifier, the decision boundary it generates is linear. Since the dependence between molecular descriptors and end points in non-linear, logistic regression overfits on the training data and is unable to predict with similar accuracy on the test and validation set.
 
 <p align="center" width="100%">
-    <img width="50%" src="https://i.imgur.com/0yav04k.png"><br >
+    <img width="75%" src="https://i.imgur.com/0yav04k.png"><br >
     <i> MCC of the random and scaffold split for training, testing and validation </i>
 </p>
 
@@ -125,13 +125,13 @@ decision trees present.
 2. Time required for training is more when compared to decision trees.
 
 <p align="center" width="100%">
-    <img width="50%" src="https://https://www.freecodecamp.org/news/content/images/2020/08/how-random-forest-classifier-work.PNG"><br >
+    <img width="75%" src="https://https://www.freecodecamp.org/news/content/images/2020/08/how-random-forest-classifier-work.PNG"><br >
     <i> Random Forest Classifier </i>
 </p>
 
 
 <p align="center" width="100%">
-    <img width="50%" src="https://i.imgur.com/p5OrTMH.png"><br >
+    <img width="75%" src="https://i.imgur.com/p5OrTMH.png"><br >
     <i> ROC of Random Forest Classifier of training, testing and validation </i>
 </p>
 
@@ -139,7 +139,7 @@ decision trees present.
 To overcome the issue of linear boundary generation for non-linear data, we use the Random Forest Classifier, a non-linear classifier.  In this case, we also see that the model overfits the data, possibly due to producing exact non-linear boundaries for classification. Tuning of Hyperparameters in the RF classifier affects all the decision trees, so one needs to find the tradeoff between the value of the ROC AUC metric obtained and the changes in the hyperparameters.
 
 <p align="center" width="100%">
-    <img width="50%" src="https://i.imgur.com/ZcRsmT0.png"><br >
+    <img width="75%" src="https://i.imgur.com/ZcRsmT0.png"><br >
     <i> MCC of the random and scaffold split for training, testing and validation </i>
 </p>
 
@@ -156,14 +156,14 @@ Some features of XGBoost include:
 4. Out-of-Core computation for large datasets that cause storage problems.
 
 <p align="center" width="100%">
-    <img width="50%" src="https://i.imgur.com/yraKhUa.png"><br >
+    <img width="75%" src="https://i.imgur.com/yraKhUa.png"><br >
     <i> AUC - ROC of XGBoost Classifier of training, testing and validation </i>
 </p>
 
 The XGBoost model can overcome the problem of overfitting to a certain extent, as evident by the ROC AUC values of the training, testing, and validation datasets. Even the MCC metric values indicate that there is not much difference between the training, testing, and validation results obtained.
 
 <p align="center" width="100%">
-    <img width="50%" src="https://i.imgur.com/k90hUCS.png"><br >
+    <img width="75%" src="https://i.imgur.com/k90hUCS.png"><br >
     <i> MCC of the random and scaffold split for training, testing and validation </i>
 </p>
 
