@@ -68,27 +68,29 @@ The five quintessential components for any Molecular Dynamic Simulation are init
 #### Lennard-Jones Potential
 It is an intermolecular pair potential. Among all the intermolecular pairs, researchers have extensively examined the Lennard-Jones potential.
 
-|<img src="https://upload.wikimedia.org/wikipedia/commons/9/93/12-6-Lennard-Jones-Potential-equation.svg" align = "center" width="100%" height="100%"/>|
-|:--:|
-| *Lennard-Jones Potential Expression* |
+<p align="center" width="100%">
+    <img width="50%" src="https://upload.wikimedia.org/wikipedia/commons/9/93/12-6-Lennard-Jones-Potential-equation.svg">
+    <i> Lennard-Jones Potential Expression </i>
+</p>
 
+<p align="center" width="100%">
+    <img width="50%" src="https://upload.wikimedia.org/wikipedia/en/e/e7/Graph_of_Lennard-Jones_potential.png">
+    <i> Lennard-Jones Potential Graph </i>
+</p>
 
-|<img src="https://upload.wikimedia.org/wikipedia/en/e/e7/Graph_of_Lennard-Jones_potential.png" width="50%" height="50%"> |
-|:--:|
-| *Lennard-Jones Potential Graph* |
 
 #### Coulomb–Buckingham Potential
 It is a modification of the Buckingham Potential, which was put forth by Richard Buckingham. For the application of the Buckingham potential to ionic systems, the modification was made, and hence the new potential came to be known as Coulomb-Buckingham Potential.
 
-|<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/80e3fc27abeca3b8e89135ee679c5c10bdedc9d1" align = "center" width="100%" height="100%"/> |
-|:--:|
-| *Coulomb–Buckingham Potential Expression* |
+<p align="center" width="100%">
+    <img width="50%" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/80e3fc27abeca3b8e89135ee679c5c10bdedc9d1">
+    <i> Coulomb–Buckingham Potential Expression </i>
+</p>
 
-
-| <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Coulomb-Buckingham_Potential.png" align = "center" width="100%" height="100%"/> |
-|:--:|
-| *Coulomb–Buckingham Potential Graph* |
-
+<p align="center" width="100%">
+    <img width="50%" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Coulomb-Buckingham_Potential.png">
+    <i> Coulomb–Buckingham Potential Graph </i>
+</p>
 
 ## Water Box Simulation
 The water box is modelled by utilizing the VMD software. We use the "Add Solvation
@@ -99,9 +101,11 @@ VMD > Extensions > Modeling > Add Solvation Box
 
 The command generates the PDB (Protein Data Bank) and the PSF (Protein Structure File) for the water box after taking in the coordinates of the box, for our case we provide 40nm as the length of our water box, centered at (0, 0, 0). The diagram below depicts the PDB of water box generated as displayed by VMD.
 
-|<img src="https://i.imgur.com/bObWAFi.png" width="99%" height="99%"/>|
-|:--:|
-| *Water Cube* |
+<p align="center" width="100%">
+    <img width="50%" src="https://i.imgur.com/bObWAFi.png">
+    <i> Water Cube </i>
+</p>
+
 
 The first few lines of the PDB file for the water box:
 ```python
@@ -157,13 +161,9 @@ stepspercycle   5
 ```
 
 <p align="center" width="100%">
-    <img width="100%" src="https://www.ks.uiuc.edu/Research/namd/2.10/ug/img74.png">
-    Illustration of the working of the Cutoff parameter
+    <img width="50%" src="https://www.ks.uiuc.edu/Research/namd/2.10/ug/img74.png">
+    <i> Illustration of the working of the Cutoff parameter </i>
 </p>
-
-| <img src="https://www.ks.uiuc.edu/Research/namd/2.10/ug/img74.png" align = "center" width="100%" height="100%"/>|
-|:--:|
-| *Illustration of the working of the Cutoff parameter* |
 
 8. Time Step - The time taken to complete one step, specified in femtoseconds.
 ```python
