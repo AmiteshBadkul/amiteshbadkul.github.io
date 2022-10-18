@@ -16,7 +16,7 @@ To understand the process of creating and running a molecular dynamic simulation
 ## Computer Simulations
 Computer simulations help us better analyze the properties of molecular assemblies in terms of microscopic interactions and structure of the same. This works as a supplement to traditional experiments, empowering us to learn something new that we couldn't learn any other way. Molecular dynamics (MD) and Monte Carlo are the most common simulation techniques (MC). Computer simulations help link time scales and the microscopic length with the macroscopic world in the laboratory. It provides a view of the interactions among molecules and obtains accurate predictions of the bulk properties. Molecular dynamics (MD) is a procedure where the motion of the particles of a system over a specific period is recorded by solving Newton's equations of motion. This is done for each particle in the system over the simulation duration. However, the MD simulation method was introduced in the 1950s by Marshall Rosenbluth and Nicholas Metropolis in the form of the Metropolis-Hastings algorithm.
 
-|<img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Molecular_dynamics_algorithm.png" width=50% height=50% />|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Molecular_dynamics_algorithm.png" width="50%" height="50%" />|
 |:--:|
 | *The general procedure for MD Simulation is illustrated* |
 
@@ -48,8 +48,8 @@ Characteristics of Molecular Dynamic Simulation include the following:
 3. It can be successfully be used as a statistical mechanics method
 4. The data recorded about the distances and the velocities can be averaged over time and over all the molecules of the system to obtain the thermodynamic quantities of the system
 5. It provides atomic and molecular level information on the system
-width=50% height=50%
-|<img src="https://i.imgur.com/zXjH2ec.png" width=50% height=50% />|
+width="50%" height="50%"
+|<img src="https://i.imgur.com/zXjH2ec.png" width="50%" height="50%" />|
 |:--:|
 | *The Steps Involved in Molecular Dynamic Simulation* |
 
@@ -75,7 +75,7 @@ It is an intermolecular pair potential. Among all the intermolecular pairs, rese
 | *Lennard-Jones Potential Expression* |
 
 
-|<img src="https://upload.wikimedia.org/wikipedia/en/e/e7/Graph_of_Lennard-Jones_potential.png" width=50% height=50% /> |
+|<img src="https://upload.wikimedia.org/wikipedia/en/e/e7/Graph_of_Lennard-Jones_potential.png" width="50%" height="50%"> |
 |:--:|
 | *Lennard-Jones Potential Graph* |
 
