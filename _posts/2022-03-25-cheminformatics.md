@@ -95,9 +95,10 @@ The following classification algorithms were deployed:
 ### Logistic Regression
 For classification tasks, the logistic regression method is employed. It's a probabilistic prediction analysis algorithm. The logistic regression classifier is intended to provide us with a set of outputs or classifications depending on likelihood. We run the data through a prediction algorithm and get a likelihood score between 0 and 1.
 
-| ![AUC - ROC of Logistic Regression of training, testing and validation](https://i.imgur.com/N7Z0HVF.png) |
-|:--:|
-| *AUC - ROC of Logistic Regression of training, testing and validation* |
+<p align="center" width="75%">
+    <img width="50%" src="https://i.imgur.com/N7Z0HVF.png"><br >
+    <i> AUC - ROC of Logistic Regression of training, testing and validation </i>
+</p>
 
 
 Logistic Regression is a linear classifier, the decision boundary it generates is linear. Since the dependence between molecular descriptors and end points in non-linear, logistic regression overfits on the training data and is unable to predict with similar accuracy on the test and validation set.
