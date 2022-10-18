@@ -2,7 +2,7 @@
 layout: page
 title: Cheminformatics Binary Classification
 description: CYP3A4 inhibition prediction
-img: assets/img/cyp3a4.jpeg
+img: assets/img/protein.jpeg
 importance: 2
 category: work
 ---

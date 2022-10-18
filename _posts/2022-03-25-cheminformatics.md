@@ -55,16 +55,17 @@ To understand how exactly the algorithm for the ECFP fingerprint works consider 
 
 The dataset's chemical space was explored to understand better the various molecules present in the dataset as similar molecules are clustered together. In contrast, dissimilar ones are far from each other. We can also understand the similarity between the training, testing, and validation datasets. Principal component analysis or PCA is a commonly employed method to understand the chemical space. PCA is a dimensionality reduction technique that produces new variables using a linear combination of old variables that are better able to describe the dataset. We use the explained variance ratio metric to verify if PCA adequately retained the original variables' information. The higher the ratio, the more variance from the data is retained. To visualize the chemical space, we reduce the variables to two using PCA.
 
-| ![PCA (PC1 and PC2 are the linear combinations of the previous variables)](https://i.imgur.com/3OHCq27.png) |
-|:--:|
-| *PCA (PC1 and PC2 are the linear combinations of the previous variables)* |
+<p align="center" width="100%">
+    <img width="50%" src="https://i.imgur.com/3OHCq27.png"><br >
+    <i> PC1 and PC2 are the linear combinations of the previous variables </i>
+</p>
 
 PCA is a linear dimension reduction technique that cannot adequately explain the clustering of drugs. In contrast, T-distributed Stochastic Neighbor Embedding (t-SNE) is a non-linear dimensionality reduction technique that can explain the same. The math behind t-SNE is quite complex, but the idea is simple. It embeds the points from a higher dimension to a lower dimension trying to preserve the neighborhood of that point. t-SNE is better able to capture the extent of distribution of the compounds of the dataset.
 
-
-| ![The t-SNE plot is generated such that 95% of the variance is retained.](https://i.imgur.com/keANY5J.png) |
-|:--:|
-| *The t-SNE plot is generated such that 95% of the variance is retained.* |
+<p align="center" width="100%">
+    <img width="50%" src="https://i.imgur.com/keANY5J.png"><br >
+    <i> The t-SNE plot is generated such that 95% of the variance is retained </i>
+</p>
 
 To better understand PCA and t-SNE consider reading the following:
 1. [Achinoam Soroker's Simple Explanation](https://medium.com/swlh/t-sne-explained-math-and-intuition-94599ab164cf)
@@ -76,9 +77,10 @@ Removal of drug compounds from the dataset, as these drug compounds lead to mode
 1. Invalid SMILES string.
 2. Outlier removal using molecular weight as a descriptor - if the molecule has a  weight three times the standard deviations from the mean, it was flagged as an outlier.
 
-| ![Histogram distribution after outlier removal](https://i.imgur.com/4kTGoKo.png) |
-|:--:|
-| *Histogram distribution after outlier removal* |
+<p align="center" width="100%">
+    <img width="50%" src="https://i.imgur.com/4kTGoKo.png"><br >
+    <i> Histogram distribution after outlier removal </i>
+</p>
 
 ## Classification Models
 The following classification algorithms were deployed:
