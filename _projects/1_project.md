@@ -156,6 +156,11 @@ cutoff          10
 stepspercycle   5
 ```
 
+<p align="center" width="100%">
+    <img width="33%" src="https://www.ks.uiuc.edu/Research/namd/2.10/ug/img74.png"> 
+</p>
+
+
 | <img src="https://www.ks.uiuc.edu/Research/namd/2.10/ug/img74.png" align = "center" width="100%" height="100%"/>|
 |:--:|
 | *Illustration of the working of the Cutoff parameter* |
