@@ -69,12 +69,12 @@ The five quintessential components for any Molecular Dynamic Simulation are init
 It is an intermolecular pair potential. Among all the intermolecular pairs, researchers have extensively examined the Lennard-Jones potential.
 
 <p align="center" width="100%">
-    <img width="50%" src="https://upload.wikimedia.org/wikipedia/commons/9/93/12-6-Lennard-Jones-Potential-equation.svg">
+    <img width="50%" src="https://upload.wikimedia.org/wikipedia/commons/9/93/12-6-Lennard-Jones-Potential-equation.svg"><br>
     <i> Lennard-Jones Potential Expression </i>
 </p>
 
 <p align="center" width="100%">
-    <img width="50%" src="https://upload.wikimedia.org/wikipedia/en/e/e7/Graph_of_Lennard-Jones_potential.png">
+    <img width="50%" src="https://upload.wikimedia.org/wikipedia/en/e/e7/Graph_of_Lennard-Jones_potential.png"><br>
     <i> Lennard-Jones Potential Graph </i>
 </p>
 
@@ -83,12 +83,12 @@ It is an intermolecular pair potential. Among all the intermolecular pairs, rese
 It is a modification of the Buckingham Potential, which was put forth by Richard Buckingham. For the application of the Buckingham potential to ionic systems, the modification was made, and hence the new potential came to be known as Coulomb-Buckingham Potential.
 
 <p align="center" width="100%">
-    <img width="50%" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/80e3fc27abeca3b8e89135ee679c5c10bdedc9d1">
+    <img width="50%" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/80e3fc27abeca3b8e89135ee679c5c10bdedc9d1"><br>
     <i> Coulomb–Buckingham Potential Expression </i>
 </p>
 
 <p align="center" width="100%">
-    <img width="50%" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Coulomb-Buckingham_Potential.png">
+    <img width="50%" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Coulomb-Buckingham_Potential.png"><br>
     <i> Coulomb–Buckingham Potential Graph </i>
 </p>
 
@@ -102,7 +102,7 @@ VMD > Extensions > Modeling > Add Solvation Box
 The command generates the PDB (Protein Data Bank) and the PSF (Protein Structure File) for the water box after taking in the coordinates of the box, for our case we provide 40nm as the length of our water box, centered at (0, 0, 0). The diagram below depicts the PDB of water box generated as displayed by VMD.
 
 <p align="center" width="100%">
-    <img width="50%" src="https://i.imgur.com/bObWAFi.png">
+    <img width="50%" src="https://i.imgur.com/bObWAFi.png"><br>
     <i> Water Cube </i>
 </p>
 
