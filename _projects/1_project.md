@@ -99,7 +99,7 @@ VMD > Extensions > Modeling > Add Solvation Box
 
 The command generates the PDB (Protein Data Bank) and the PSF (Protein Structure File) for the water box after taking in the coordinates of the box, for our case we provide 40nm as the length of our water box, centered at (0, 0, 0). The diagram below depicts the PDB of water box generated as displayed by VMD.
 
-|<img src="https://i.imgur.com/bObWAFi.png" align = "center" width="100%" height="100%"/>|
+|<img src="https://i.imgur.com/bObWAFi.png" width="99%" height="99%"/>|
 |:--:|
 | *Water Cube* |
 
