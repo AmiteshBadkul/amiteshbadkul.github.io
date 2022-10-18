@@ -49,9 +49,6 @@ Characteristics of Molecular Dynamic Simulation include the following:
 4. The data recorded about the distances and the velocities can be averaged over time and over all the molecules of the system to obtain the thermodynamic quantities of the system
 5. It provides atomic and molecular level information on the system
 
-|<img src="https://i.imgur.com/zXjH2ec.png" width="70%" />|
-|:--:|
-| *The Steps Involved in Molecular Dynamic Simulation* |
 
 The main disadvantage of Molecular Dynamic Simulation is that the result is often an approximate measure because solving the Schrodinger equation to obtain the wavefunction that accurately describes atom/particle is computationally expensive and time-consuming. However, the error obtained from simulation can be minimized by choosing the correct potential function. A wide range of potential functions makes the simulation results realistic and more precise.
 
