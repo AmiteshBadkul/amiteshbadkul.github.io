@@ -2,7 +2,7 @@
 layout: page
 title: Learnings from Molecular Dynamic Simulation
 description: Running a Simple Molecular Dynamic Simulation using VMD and NAMD
-img: assets/img/12.jpg
+img: assets/img/ice_atoms.jpg
 importance: 1
 category: work
 ---
