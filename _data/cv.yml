@@ -59,7 +59,7 @@
 
     - title: Research Intern
       institution: Sensordrops Networks, IIT Kharagpur, Kharagpur, India
-      year:  Dec 2020 - March 2021
+      year:  Dec 2020 - Mar 2021
       description:
         - Worked under the supervision of Dr. Sudip Misra, developed a Graph Neural Networks (GNNs) based algorithm for Contact Tracing of COVID-19 patients. Created a novel Twitter dataset for training and testing. Used Twitter metadata as features and deployed the GNN model using Python. Obtained accuracy of 92.3%
 
