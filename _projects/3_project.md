@@ -2,7 +2,7 @@
 layout: page
 title: Mean Square Displacement and Diffusion Coefficient Calculation
 description: CYP3A4 inhibition prediction
-img: assets/img/protein.jpeg
+img: assets/img/1.jpg
 importance: 3
 category: work
 ---
