@@ -9,3 +9,5 @@ category: work
 
 ## Description
 To understand the general flow of QSAR predictive modeling, I selected the problem of binary classification of the cytochrome P450 3A4 inhibition. To read more about the classification nitty-gritty check out [Binary Classification](https://amiteshbadkul.github.io/blog/2022/cheminformatics/)!.
+
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=AmiteshBadkul&repo=CYP3A4)](https://github.com/AmiteshBadkul/CYP3A4)
