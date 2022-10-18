@@ -1,11 +1,13 @@
 ---
 layout: page
-title: project 5
-description: a project with a background image
+title: Experiments with Film Camera
+description: Film Photography
 img: assets/img/1.jpg
 importance: 3
 category: fun
 ---
+
+I have always been fascinated with my surroundings wherever I am, I always end up finding scenic, aesthetic beauty in daily life surroundings. And consequently I try to capture the same using a camera (be it phone, DSLRs, film cameras). However, not always the photograph is developed the way we perceive it.
 
 Every project has a beautiful feature showcase page.
 It's easy to include images in a flexible 3-column grid format.
