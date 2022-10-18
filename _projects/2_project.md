@@ -1,8 +1,8 @@
 ---
 layout: page
-title: project 2
-description: a project with a background image
-img: assets/img/3.jpg
+title: Cheminformatics Binary Classification
+description: CYP3A4 inhibition prediction
+img: assets/img/cyp3a4.jpeg
 importance: 2
 category: work
 ---

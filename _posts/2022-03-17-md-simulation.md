@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Molecular Dynamics Simulation of Water
+title:  Learnings from Molecular Dynamic Simulation
 date:   2022-03-17 16:40:16
 description: understanding simple MD simulations
 tags: md vmd namd
@@ -158,7 +158,7 @@ stepspercycle   5
 ```
 
 <p align="center" width="100%">
-    <img width="50%" src="https://www.ks.uiuc.edu/Research/namd/2.10/ug/img74.png">
+    <img width="50%" src="https://www.ks.uiuc.edu/Research/namd/2.10/ug/img74.png"><br >
     <i> Illustration of the working of the Cutoff parameter </i>
 </p>
 
