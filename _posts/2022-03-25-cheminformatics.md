@@ -1,5 +1,5 @@
 ---
-layout: layout
+layout: post
 title:  Fundamentals of CYP3A4 Binding
 date:   2022-03-25 09:23:16
 description: CYP3A4 inhibition prediction

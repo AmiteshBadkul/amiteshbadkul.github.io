@@ -1,5 +1,5 @@
 ---
-layout: layout
+layout: post
 title:  Learnings from Molecular Dynamic Simulation
 date:   2022-03-17 16:40:16
 description: understanding simple MD simulations
