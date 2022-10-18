@@ -95,7 +95,7 @@ The following classification algorithms were deployed:
 ### Logistic Regression
 For classification tasks, the logistic regression method is employed. It's a probabilistic prediction analysis algorithm. The logistic regression classifier is intended to provide us with a set of outputs or classifications depending on likelihood. We run the data through a prediction algorithm and get a likelihood score between 0 and 1.
 
-<p align="center" width="75%">
+<p align="center" width="100%">
     <img width="50%" src="https://i.imgur.com/N7Z0HVF.png"><br >
     <i> AUC - ROC of Logistic Regression of training, testing and validation </i>
 </p>
@@ -103,10 +103,10 @@ For classification tasks, the logistic regression method is employed. It's a pro
 
 Logistic Regression is a linear classifier, the decision boundary it generates is linear. Since the dependence between molecular descriptors and end points in non-linear, logistic regression overfits on the training data and is unable to predict with similar accuracy on the test and validation set.
 
-
-| ![MCC of the random and scaffold split for training, testing and validation](https://i.imgur.com/0yav04k.png) |
-|:--:|
-| *MCC of the random and scaffold split for training, testing and validation* |
+<p align="center" width="100%">
+    <img width="50%" src="https://i.imgur.com/0yav04k.png"><br >
+    <i> MCC of the random and scaffold split for training, testing and validation </i>
+</p>
 
 In case of both the random and scaffold split similar results are obtained - possibly due to the random and scaffold split having similar test and validation drug compounds.
 
@@ -124,22 +124,25 @@ Disadvantages of Random Forests include:
 decision trees present.
 2. Time required for training is more when compared to decision trees.
 
-| ![Random Forest Classifier](https://community.tibco.com/sites/default/files/random_forest_diagram_complete.png) |
-|:--:|
-| *Random Forest Classifier* |
+<p align="center" width="100%">
+    <img width="50%" src="https://https://www.freecodecamp.org/news/content/images/2020/08/how-random-forest-classifier-work.PNG"><br >
+    <i> Random Forest Classifier </i>
+</p>
 
 
-| ![AUC - ROC of Random Forest Classifier of training, testing and validation](https://i.imgur.com/p5OrTMH.png) |
-|:--:|
-| *AUC - ROC of Random Forest Classifier of training, testing and validation* |
+<p align="center" width="100%">
+    <img width="50%" src="https://i.imgur.com/p5OrTMH.png"><br >
+    <i> ROC of Random Forest Classifier of training, testing and validation </i>
+</p>
 
 
 To overcome the issue of linear boundary generation for non-linear data, we use the Random Forest Classifier, a non-linear classifier.  In this case, we also see that the model overfits the data, possibly due to producing exact non-linear boundaries for classification. Tuning of Hyperparameters in the RF classifier affects all the decision trees, so one needs to find the tradeoff between the value of the ROC AUC metric obtained and the changes in the hyperparameters.
 
+<p align="center" width="100%">
+    <img width="50%" src="https://i.imgur.com/ZcRsmT0.png"><br >
+    <i> MCC of the random and scaffold split for training, testing and validation </i>
+</p>
 
-| ![MCC of the random and scaffold split for training, testing and validation](https://i.imgur.com/ZcRsmT0.png) |
-|:--:|
-| *MCC of the random and scaffold split for training, testing and validation* |
 
 The scaffold split train dataset has a higher MCC due to overfitting, whereas the random split model generalizes better. The scaffold split doesn’t generalize well on unseen data as the test and the validation set contains drugs with scaffolds different from the training set.
 
@@ -152,15 +155,17 @@ Some features of XGBoost include:
 3. Distributed training on a cluster of machines for a large dataset.
 4. Out-of-Core computation for large datasets that cause storage problems.
 
-| ![AUC - ROC of XGBoost Classifier of training, testing and validation](https://i.imgur.com/yraKhUa.png) |
-|:--:|
-| *AUC - ROC of XGBoost Classifier of training, testing and validation* |
+<p align="center" width="100%">
+    <img width="50%" src="https://i.imgur.com/yraKhUa.png"><br >
+    <i> AUC - ROC of XGBoost Classifier of training, testing and validation </i>
+</p>
 
 The XGBoost model can overcome the problem of overfitting to a certain extent, as evident by the ROC AUC values of the training, testing, and validation datasets. Even the MCC metric values indicate that there is not much difference between the training, testing, and validation results obtained.
 
-| ![MCC of the random and scaffold split for training, testing and validation](https://i.imgur.com/k90hUCS.png) |
-|:--:|
-| *MCC of the random and scaffold split for training, testing and validation* |
+<p align="center" width="100%">
+    <img width="50%" src="https://i.imgur.com/k90hUCS.png"><br >
+    <i> MCC of the random and scaffold split for training, testing and validation </i>
+</p>
 
 ## Discussion
 Some potential reasons for values of these metrics being moderate and not higher include -
