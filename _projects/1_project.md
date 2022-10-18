@@ -68,9 +68,7 @@ The five quintessential components for any Molecular Dynamic Simulation are init
 #### Lennard-Jones Potential
 It is an intermolecular pair potential. Among all the intermolecular pairs, researchers have extensively examined the Lennard-Jones potential.
 
-
-
-| ![Lennard-Jones Potential Expression](https://upload.wikimedia.org/wikipedia/commons/9/93/12-6-Lennard-Jones-Potential-equation.svg) |
+|<img src="https://upload.wikimedia.org/wikipedia/commons/9/93/12-6-Lennard-Jones-Potential-equation.svg" />|
 |:--:|
 | *Lennard-Jones Potential Expression* |
 
@@ -82,12 +80,12 @@ It is an intermolecular pair potential. Among all the intermolecular pairs, rese
 #### Coulomb–Buckingham Potential
 It is a modification of the Buckingham Potential, which was put forth by Richard Buckingham. For the application of the Buckingham potential to ionic systems, the modification was made, and hence the new potential came to be known as Coulomb-Buckingham Potential.
 
-| ![Coulomb–Buckingham Potential Expression](https://wikimedia.org/api/rest_v1/media/math/render/svg/80e3fc27abeca3b8e89135ee679c5c10bdedc9d1) |
+|<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/80e3fc27abeca3b8e89135ee679c5c10bdedc9d1" /> |
 |:--:|
 | *Coulomb–Buckingham Potential Expression* |
 
 
-| ![Coulomb–Buckingham Potential Graph](https://upload.wikimedia.org/wikipedia/commons/b/b1/Coulomb-Buckingham_Potential.png) |
+| <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Coulomb-Buckingham_Potential.png" /> |
 |:--:|
 | *Coulomb–Buckingham Potential Graph* |
 
@@ -101,7 +99,7 @@ VMD > Extensions > Modeling > Add Solvation Box
 
 The command generates the PDB (Protein Data Bank) and the PSF (Protein Structure File) for the water box after taking in the coordinates of the box, for our case we provide 40nm as the length of our water box, centered at (0, 0, 0). The diagram below depicts the PDB of water box generated as displayed by VMD.
 
-| ![Water Cube](https://i.imgur.com/bObWAFi.png) |
+|<img src="https://i.imgur.com/bObWAFi.png" />|
 |:--:|
 | *Water Cube* |
 
@@ -158,7 +156,7 @@ cutoff          10
 stepspercycle   5
 ```
 
-| ![Illustration of the working of the Cutoff parameter](https://www.ks.uiuc.edu/Research/namd/2.10/ug/img74.png) |
+| <img src="https://www.ks.uiuc.edu/Research/namd/2.10/ug/img74.png" />|
 |:--:|
 | *Illustration of the working of the Cutoff parameter* |
 
