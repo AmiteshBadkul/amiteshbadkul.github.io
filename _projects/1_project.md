@@ -16,7 +16,7 @@ To understand the process of creating and running a molecular dynamic simulation
 ## Computer Simulations
 Computer simulations help us better analyze the properties of molecular assemblies in terms of microscopic interactions and structure of the same. This works as a supplement to traditional experiments, empowering us to learn something new that we couldn't learn any other way. Molecular dynamics (MD) and Monte Carlo are the most common simulation techniques (MC). Computer simulations help link time scales and the microscopic length with the macroscopic world in the laboratory. It provides a view of the interactions among molecules and obtains accurate predictions of the bulk properties. Molecular dynamics (MD) is a procedure where the motion of the particles of a system over a specific period is recorded by solving Newton's equations of motion. This is done for each particle in the system over the simulation duration. However, the MD simulation method was introduced in the 1950s by Marshall Rosenbluth and Nicholas Metropolis in the form of the Metropolis-Hastings algorithm.
 
-| ![The general procedure for MD Simulation is illustrated](https://upload.wikimedia.org/wikipedia/commons/7/7b/Molecular_dynamics_algorithm.png) |
+| <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Molecular_dynamics_algorithm.png" width="200" /> |
 |:--:|
 | *The general procedure for MD Simulation is illustrated* |
 
@@ -101,8 +101,9 @@ VMD > Extensions > Modeling > Add Solvation Box
 
 The command generates the PDB (Protein Data Bank) and the PSF (Protein Structure File) for the water box after taking in the coordinates of the box, for our case we provide 40nm as the length of our water box, centered at (0, 0, 0). The diagram below depicts the PDB of water box generated as displayed by VMD.
 
-![Water Cube](https://i.imgur.com/bObWAFi.png)
-Water Cube
+| ![Water Cube](https://i.imgur.com/bObWAFi.png) |
+|:--:|
+| *Water Cube* |
 
 The first few lines of the PDB file for the water box:
 ```python
