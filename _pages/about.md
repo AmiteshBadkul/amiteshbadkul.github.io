@@ -30,7 +30,6 @@ Through the blog post section of the website, I aim to:
 3. Improve my understanding of the subject matter
 4. Contribute to adding new knowledge and enhancing existing knowledge
 
-I believe that documentation is a significant component of research and helps in systematically integrating one's thought process to understand the subject matter better. It assists in uncovering flaws involved in the study. Through the blog post section of the website, I aim to share my thought process to help others understand topics, obtain constructive criticism on my work, improve my understanding of the subject matter and hopefully contribute to adding new knowledge and enhancing existing knowledge.
 
 View my projects here: [projects](https://amiteshbadkul.github.io/projects/)<br />
 View my CV here: [CV](https://amiteshbadkul.github.io/cv/)<br />
