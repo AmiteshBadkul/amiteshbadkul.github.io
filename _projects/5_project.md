@@ -9,9 +9,12 @@ category: fun
 
 I have always been fascinated with my surroundings wherever I am, I always end up finding scenic, aesthetic beauty in daily life surroundings. And consequently I try to capture the same using a camera (be it phone, DSLRs, film cameras). However, not always the photograph is developed the way we perceive it.
 
+![alt-text-1](https://imgur.com/DXC8huw) ![alt-text-2](https://imgur.com/W30sJ5y)
+
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html src="https://imgur.com/DXC8huw" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html src="" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/photography/film3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
