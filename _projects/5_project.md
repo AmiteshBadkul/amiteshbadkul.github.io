@@ -22,7 +22,7 @@ I have always been fascinated with my surroundings wherever I am, I always end u
 </div>
 
 <div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
+    Some shots.
 </div>
 
 <div class="row">
@@ -44,5 +44,5 @@ I have always been fascinated with my surroundings wherever I am, I always end u
     </div>
 </div>
 <div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
+    Light Leaked image.
 </div>
