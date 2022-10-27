@@ -13,9 +13,21 @@ I have always been fascinated with my surroundings wherever I am, I always end u
 
 Solarized dark             |  Solarized Ocean
 :-------------------------:|:-------------------------:
-![](https://imgur.com/DXC8huw.jpg)  |  ![](https://imgur.com/KmreFdH.jpg)
+![](https://imgur.com/DXC8huw.jpg)  |  ![]()
 
-<img src="https://imgur.com/DXC8huw.jpg" alt="drawing" width="200"/>
+<img src="" alt="drawing" width="200"/>
+
+<div class="row">
+  <div class="column">
+    <img src="https://imgur.com/DXC8huw.jpg" alt="Snow" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://imgur.com/KmreFdH.jpg" alt="Forest" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://imgur.com/W30sJ5y.jpg" alt="Mountains" style="width:100%">
+  </div>
+</div>
 
 
 <div class="row">
