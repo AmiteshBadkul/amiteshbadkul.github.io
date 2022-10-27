@@ -11,6 +11,10 @@ I have always been fascinated with my surroundings wherever I am, I always end u
 
 ![alt-text-1](https://imgur.com/DXC8huw.jpg) ![alt-text-2](https://imgur.com/W30sJ5y.jpg) ![alt-text-2](https://imgur.com/KmreFdH.jpg)
 
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![](https://imgur.com/DXC8huw.jpg)  |  ![](https://imgur.com/KmreFdH.jpg)
+
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
