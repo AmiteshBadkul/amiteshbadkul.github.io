@@ -2,7 +2,7 @@
 layout: page
 title: Experiments with Film Camera
 description: Film Photography
-img: assets/img/1.jpg
+img: https://i.imgur.com/lm3yIj4.jpg
 importance: 3
 category: fun
 ---
