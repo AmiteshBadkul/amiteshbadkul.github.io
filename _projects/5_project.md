@@ -15,6 +15,8 @@ Solarized dark             |  Solarized Ocean
 :-------------------------:|:-------------------------:
 ![](https://imgur.com/DXC8huw.jpg)  |  ![](https://imgur.com/KmreFdH.jpg)
 
+<img src="https://imgur.com/DXC8huw.jpg" alt="drawing" width="200"/>
+
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
