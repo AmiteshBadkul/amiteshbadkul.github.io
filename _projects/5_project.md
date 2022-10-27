@@ -37,10 +37,10 @@ I have always been fascinated with my surroundings wherever I am, I always end u
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        <img src="https://i.imgur.com/Q6ylbOD.jpg" alt="" style="width:100%">
+        <img src="https://i.imgur.com/S49JN8i.jpg" alt="" style="width:100%">
     </div>
     <div class="col-sm-4 mt-3 mt-md-0">
-      <img src="https://i.imgur.com/S49JN8i.jpg" alt="" style="width:100%">
+      <img src="https://i.imgur.com/Q6ylbOD.jpg" alt="" style="width:100%">
     </div>
 </div>
 <div class="caption">
