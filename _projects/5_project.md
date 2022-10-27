@@ -11,13 +11,13 @@ I have always been fascinated with my surroundings wherever I am, I always end u
 
 <div class="row">
   <div class="col-sm mt-3 mt-md-0">
-    <img src="https://imgur.com/DXC8huw.jpg" alt="Snow" style="width:100%">
+    <img src="https://imgur.com/DXC8huw.jpg" alt="" style="width:100%">
   </div>
   <div class="col-sm mt-3 mt-md-0">
-    <img src="https://imgur.com/KmreFdH.jpg" alt="Forest" style="width:100%">
+    <img src="https://imgur.com/KmreFdH.jpg" alt="" style="width:100%">
   </div>
   <div class="col-sm mt-3 mt-md-0">
-    <img src="https://imgur.com/W30sJ5y.jpg" alt="Mountains" style="width:100%">
+    <img src="https://imgur.com/W30sJ5y.jpg" alt="" style="width:100%">
   </div>
 </div>
 
@@ -27,16 +27,12 @@ I have always been fascinated with my surroundings wherever I am, I always end u
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/photography/film4.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        <img src="https://i.imgur.com/RMEeAej.jpg" alt="" style="width:100%">
     </div>
 </div>
 <div class="caption">
-    This image can also have a caption. It's like magic.
+    It's like magic.
 </div>
-
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, *bled* for your project, and then... you reveal its glory in the next row of images.
 
 
 <div class="row justify-content-sm-center">
