@@ -10,13 +10,13 @@ category: fun
 I have always been fascinated with my surroundings wherever I am, I always end up finding scenic, aesthetic beauty in daily life surroundings. And consequently I try to capture the same using a camera (be it phone, DSLRs, film cameras). However, not always the photograph is developed the way we perceive it.
 
 <div class="row">
-  <div class="column">
+  <div class="col-sm mt-3 mt-md-0">
     <img src="https://imgur.com/DXC8huw.jpg" alt="Snow" style="width:50%">
   </div>
-  <div class="column">
+  <div class="col-sm mt-3 mt-md-0">
     <img src="https://imgur.com/KmreFdH.jpg" alt="Forest" style="width:50%">
   </div>
-  <div class="column">
+  <div class="col-sm mt-3 mt-md-0">
     <img src="https://imgur.com/W30sJ5y.jpg" alt="Mountains" style="width:50%">
   </div>
 </div>
