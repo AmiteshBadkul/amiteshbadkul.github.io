@@ -229,8 +229,8 @@ display_tags: ['cheminformatics', 'dl', 'ml', 'vmd', 'namd'] # this tags will be
 
 scholar:
 
-#  last_name: [Badkul]
-#  first_name: [Amitesh]
+  last_name: [Badkul]
+  first_name: [Amitesh]
 
   style: apa
   locale: en
