@@ -63,6 +63,17 @@
       description:
         - Worked under the supervision of Dr. Sudip Misra, developed a Graph Neural Networks (GNNs) based algorithm for Contact Tracing of COVID-19 patients. Created a novel Twitter dataset for training and testing. Used Twitter metadata as features and deployed the GNN model using Python. Obtained accuracy of 92.3%
 
+- title: Publications
+  type: time_table
+  contents:
+    - year: 2023
+      items:
+        - Sudip Misra, Senior Member, IEEE, Riya, Amitesh Badkul, “C-TaaS: A GNN-Based IoT Service for Tracking COVID-19 Carriers from Social Media Posts”, CCGRID 2023 (The 23rd International Symposium on Cluster, Cloud and Internet Computing) (Status: Under Review).
+    - year: 2022
+      items:
+        - Cai, T., Xie, L., Zhang, S., Chen, M., He, D., Badkul, A., ... and Xie, L. (2022)., “End-to-end Sequence-Structure-Function Meta-learning Predicts Genome-Wide Chemical-Protein Interactions for Dark Proteins”, PLoS Computational Biology (Status: Submitted After Revision).
+        - [preprint](https://www.biorxiv.org/content/10.1101/2022.11.15.516682v2)
+
 - title: Honors and Awards
   type: time_table
   contents:
@@ -80,11 +91,11 @@
       items:
         - Bioinformatics.
         - Cheminformatics.
+        - Molecular Dynamic Simulation.
     - title: Image Processing.
       items:
         - Image Segmentation.
         - Computer Vision.
-    - title: Molecular Dynamic Simulation.
 
 - title: Other Interests
   type: list
