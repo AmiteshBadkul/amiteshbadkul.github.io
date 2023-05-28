@@ -16,20 +16,17 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Hi! I'm a final year undergraduate student currently pursuing Electrical and Electronics Engineering & Chemistry at [BITS Pilani, Hyderabad](https://www.bits-pilani.ac.in/hyderabad/). Currently working under the supervision of [Dr. Lei Xie](http://compsci.hunter.cuny.edu/~leixie/) and [Dr. Ashif Iquebal](https://sites.google.com/view/ashif-iquebal/) on various [projects](https://amiteshbadkul.github.io/projects/).
+Hi! I'm a final year undergraduate student currently pursuing Electrical and Electronics Engineering & Chemistry at [BITS Pilani, Hyderabad](https://www.bits-pilani.ac.in/hyderabad/). Currently, I am engaged in exciting research projects under the guidance of [Dr. Lei Xie](http://compsci.hunter.cuny.edu/~leixie/) and [Dr. Ashif Iquebal](https://sites.google.com/view/ashif-iquebal/) on various [projects](https://amiteshbadkul.github.io/projects/).
 
-My research interests include **Machine Learning, Deep Learning, Applications of ML & DL in Healthcare & Natural Sciences, and Molecular Dynamics Simulation**.
+My academic journey has fueled a strong interest in cutting-edge fields such as **Machine Learning, Deep Learning, and their applications in Healthcare and Natural Sciences**. Additionally, I'm intrigued by the fascinating world of **Molecular Dynamics Simulation**.
 
-Apart from this I am passionate about Computational Sciences, Photography, Squash, Basketball, Volleyball and I actively follow Formula1. <br />
+Beyond my research pursuits, I find immense joy in exploring the realm of Computational Sciences. I'm also passionate about Photography, and you'll often find me capturing captivating moments. When it comes to sports, I am an avid player of Squash, Basketball, and Volleyball. Moreover, I'm an enthusiastic follower of Formula 1, always eager to stay up to date with the latest races and developments in the sport. <br />
 
-I believe that documentation is a significant component of research. It helps to understand the subject matter better by systematically integrating one's thought and uncovering flaws involved in the study.
+I strongly value the role of documentation in research as it plays a crucial part in comprehending the subject matter more effectively, facilitating the systematic integration of thoughts, and identifying any potential flaws in the study. With the dedicated blog post section on this website, my primary objectives are to share my unique thought process to aid others in understanding various topics, receive constructive criticism to refine my work, enhance my own understanding of the subject matter, and actively contribute to the expansion of knowledge by introducing novel insights and augmenting existing knowledge.
 
-Through the blog post section of the website, I aim to:
-1. Share my thought process to help others understand topics
-2. Obtain constructive criticism on my work
-3. Improve my understanding of the subject matter
-4. Contribute to adding new knowledge and enhancing existing knowledge
+View my projects here: <br />
+View my CV here: <br />
 
+Feel free to explore my projects by visiting the [Projects](https://amiteshbadkul.github.io/projects/) page and have a look at my [CV](https://amiteshbadkul.github.io/cv/).
 
-View my projects here: [projects](https://amiteshbadkul.github.io/projects/)<br />
-View my CV here: [CV](https://amiteshbadkul.github.io/cv/)<br />
+Thank you for visiting, and I hope you find my website informative and engaging. Let's embark on this journey of exploration and learning together!
