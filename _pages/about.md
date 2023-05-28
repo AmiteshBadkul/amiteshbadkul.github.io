@@ -24,9 +24,6 @@ Beyond my research pursuits, I find immense joy in exploring the realm of Comput
 
 I strongly value the role of documentation in research as it plays a crucial part in comprehending the subject matter more effectively, facilitating the systematic integration of thoughts, and identifying any potential flaws in the study. With the dedicated blog post section on this website, my primary objectives are to share my unique thought process to aid others in understanding various topics, receive constructive criticism to refine my work, enhance my own understanding of the subject matter, and actively contribute to the expansion of knowledge by introducing novel insights and augmenting existing knowledge.
 
-View my projects here: <br />
-View my CV here: <br />
-
 Feel free to explore my projects by visiting the [Projects](https://amiteshbadkul.github.io/projects/) page and have a look at my [CV](https://amiteshbadkul.github.io/cv/).
 
 Thank you for visiting, and I hope you find my website informative and engaging. Let's embark on this journey of exploration and learning together!
