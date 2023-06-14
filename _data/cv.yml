@@ -11,12 +11,12 @@
   contents:
     - title: Bachelors + Masters (Dual Degree)
       institution: Birla Institute of Technology and Science, Pilani
-      year: Aug 2018 - Present
+      year: Aug 2018 - June 2023
       description:
         - Master of Science in Chemistry & Bachelor of Engineering in Electrical and Electronics Engineering
         - title: Cumulative GPA
           contents:
-            - 7.575/10
+            - 7.94/10
 
 - title: Experience (Research)
   type: time_table
@@ -25,13 +25,13 @@
       institution: Department of Computer Science, Hunter College, the City University of New York
       year: Jun 2022 - Present
       description:
-        - Working on developing Graph Neural Networks for prediction of protein ligand interaction under the supervision of Dr. Lei Xie.
+        - Working on developing deep learning based regression for prediction of protein ligand interaction under the supervision of Dr. Lei Xie.
 
     - title: Summer Research Intern
       institution: School of Computing, Informatics, and Decision Systems Engineering, Arizona State University
-      year: Jun 2022 - Present
+      year: Jun 2022 - Dec 2022
       description:
-        - Working on developing deep generative models for synthesis of novel compounds under the supervision of Dr Ashif Iquebal.
+        - Worked on developing deep generative models for synthesis of novel compounds under the supervision of Dr Ashif Iquebal.
 
     - title: Undergraduate Research Assistant
       institution: Department of Pharmacology, BITS Pilani, Hyderabad, India.
