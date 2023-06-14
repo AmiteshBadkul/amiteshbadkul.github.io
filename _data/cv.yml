@@ -11,67 +11,75 @@
   contents:
     - title: Bachelors + Masters (Dual Degree)
       institution: Birla Institute of Technology and Science, Pilani
-      year: Aug 2018 - Present
+      year: Aug 2018 - June 2023
       description:
         - Master of Science in Chemistry & Bachelor of Engineering in Electrical and Electronics Engineering
         - title: Cumulative GPA
           contents:
-            - 7.575/10
+            - 7.93/10
 
 - title: Experience (Research)
   type: time_table
   contents:
-    - title:  Research Assistant
+    - title:  Research Assistant  (Supervisor: Dr. Lei Xie)
       institution: Department of Computer Science, Hunter College, the City University of New York
       year: Jun 2022 - Present
       description:
-        - Working on developing Graph Neural Networks for prediction of protein ligand interaction under the supervision of Dr. Lei Xie.
+        - Utilized BLAST to analyze protein sequence similarities for large dataset (used in PortalCG), providing valuable
+insights into out-of-distribution generalization of PortalCG in predicting chemical protein interactions.
+        - Successfully implemented a deep learning-based residue-residue contact classification with a BERT-based protein
+          large language model (LLM) DISAE and achieved an accuracy of 98.81%.
+        - Implemented a comprehensive pipeline leveraging diverse deep learning algorithms, including Transformers,
+          Bi-directional LSTMs, Attention Mechanisms, and Deep CNNs, to predict protein binding affinity. Integrated
+          LLMs - BERT-based DISAE and ESM-2 models into a deep learning architecture for protein binding affinity prediction.
+        - Modeled Mutli-Task learning-based deep regression algorithms for prediction of chemical protein binding affinity and
+          achieved mean absolute error of 0.43, Pearson correlation of 0.86, and Spearman correlation of 0.88.
 
-    - title: Summer Research Intern
+    - title: Summer Research Intern (Supervisor: Dr. Ashif Iquebal)
       institution: School of Computing, Informatics, and Decision Systems Engineering, Arizona State University
-      year: Jun 2022 - Present
+      year: Jun 2022 - Dec 2022
       description:
-        - Working on developing deep generative models for synthesis of novel compounds under the supervision of Dr Ashif Iquebal.
+        - Performed extensive analysis on large chemical datasets (ChEMBL, ZINC, GDB-13) to identify the optimal dataset for training a deep generative model, with a specific focus on compounds exhibiting hydrogen bonding.
+        - Designed a cutting-edge deep generative model leveraging Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU) architectures, enhanced with hydrogen-bonding groups, for the generation of self-healing compounds.
+        - Successfully trained the deep generative model, achieving exceptional results with 98.43% validity and 99.2% uniqueness of the generated compounds. Evaluated the generated compounds using a wide range of metrics, including properties such as physicochemical properties, mechanical properties, and synthesizability, ensuring their applicability and potential for further optimization.
 
-    - title: Undergraduate Research Assistant
+    - title: Undergraduate Research Assistant (Supervisor: Dr. Srinivas Prasad K)
       institution: Department of Pharmacology, BITS Pilani, Hyderabad, India.
-      year: Jun 2021 - Present
+      year: Jun 2021 - Jun 2022
       description:
-        - Rat eye pupillometry project under the supervision of Dr Srinivas Prasad K.
-        - Developed novel algorithm for tracking and measuring the rat eye pupil in images and videos using image and video processing techniques.
-        - Developed and trained machine learning models for tracking and measuring the rat eye pupil.
+        - Designed and developed image and video processing techniques to accurately track and measure the pupil of rat
+eyes in images and videos using canny edge detection and contour detection.
+        - Implemented deep learning models, with backbones as MobileNet, EfficientNet, and ResNet, for precise tracking and measurement of the rat eye pupil.
+        - Performed extensive evaluations and comparisons of a deep learning model’s performance, surpassing state-of-the-art image processing methods and achieving superior correlation with human ground truth.
 
 
-    - title: Undergraduate Research Assistant
+    - title: Undergraduate Research Assistant (Supervisor: Dr. Durba Roy)
       institution: Department of Chemistry, BITS Pilani, Hyderabad, India
       year: Aug 2021 - May 2022
       description:
-        - Working under the supervision of Dr. Durba Roy in Molecular Dynamic Simulation.
-        - Modelled a water box cube and carried out MD simulation for 20 nanoseconds. Performed statistical analysis on the output position, velocity, and energy data obtained.
+        - Modelled a water box cube and carried out Molecular Dynamic (MD) simulation for 20 nanoseconds. Performed statistical analysis on the output position, velocity, and energy data obtained.
         - Developed algorithm for calculating the Mean Square Displacement and Diffusion Coefficient of the water system. Explored the Reaction Center of Rhodobacter Sphaeroides.
 
-    - title: Undergraduate Research Assistant
+    - title: Undergraduate Research Assistant (Supervisor: Dr. Sudha Radhika)
       institution: Department of Electrical and Electronics Engineering, BITS Pilani, Hyderabad, India
       year:  Feb 2021 - April 2022
       description:
-        - Biomedical Imaging Project under the supervision of Dr. Sudha Radhika. Fine-tuned various pretrained models such as ResNet, MobileNet, Xception, and VGG for classification of Chest X-Ray Scan (CXR) and achieved an accuracy of 97%. Developed CXR enhancement algorithm using image processing, and improved the accuracy of the previously fine-tuned model by 2%.
-        - Creation of a novel dataset by extraction of various statistical descriptors after performing wavelet transform on the RGB and gray channel individually. Implementation of classification algorithms such as Multiclass Logistic Regression, Random Forests and XGBoost, obtaining 92%, 94% and 95% accuracy respectively.
+        - Fine-tuned various pretrained models such as ResNet, MobileNet, Xception, and VGG for multi-class classification of Chest X-Ray Scan (CXR) and achieved an accuracy of 97%. Developed CXR enhancement algorithm using image processing, and improved the accuracy of the previously fine-tuned model by 2%.
+        - Took the lead in conceptualizing and implementing a project focused on creation of a novel dataset by extraction of various statistical descriptors after performing wavelet transform on the CXR. Attained an accuracy of 97.46% on the novel dataset using XGBoost and Random Forest models.
 
-    - title: Research Intern
+    - title: Research Intern (Supervisor: Dr. Sudip Misra)
       institution: Sensordrops Networks, IIT Kharagpur, Kharagpur, India
       year:  Dec 2020 - Mar 2021
       description:
-        - Worked under the supervision of Dr. Sudip Misra, developed a Graph Neural Networks (GNNs) based algorithm for Contact Tracing of COVID-19 patients. Created a novel Twitter dataset for training and testing. Used Twitter metadata as features and deployed the GNN model using Python. Obtained accuracy of 92.3%
+        - Developed a Graph Neural Networks (GNNs) based algorithm for Contact Tracing of COVID-19 patients.
+        - Created a novel Twitter dataset for training and testing. Used Twitter metadata as features and deployed the GNN model. Obtained accuracy of 92.31%.
 
 - title: Publications
   type: time_table
   contents:
     - year: 2023
       items:
-        - Sudip Misra, Senior Member, IEEE, Riya, Amitesh Badkul., "C-TaaS A GNN-Based IoT Service for Tracking COVID-19 Carriers from Social Media Posts", CCGRID 2023 (The 23rd International Symposium on Cluster, Cloud and Internet Computing) (Status - Under Review).
-    - year: 2022
-      items:
-        - Cai, T., Xie, L., Zhang, S., Chen, M., He, D., Badkul, A., ... and Xie, L. (2022)., "End-to-end Sequence-Structure-Function Meta-learning Predicts Genome-Wide Chemical-Protein Interactions for Dark Proteins", PLoS Computational Biology (Status - Submitted After Revision).
+        - Cai, T., Xie, L., Zhang, S., Chen, M., He, D., Badkul, A., ... and Xie, L. (2022)., “End-to-end Sequence-Structure-Function Meta-learning Predicts Genome-Wide Chemical-Protein Interactions for Dark Proteins”, PLoS Computational Biology.
 
 - title: Honors and Awards
   type: time_table
@@ -94,6 +102,7 @@
     - title: Image Processing.
       items:
         - Image Segmentation.
+        - Image Enhancement.
         - Computer Vision.
 
 - title: Other Interests
