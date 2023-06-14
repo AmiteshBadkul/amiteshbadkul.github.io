@@ -26,16 +26,20 @@
       year: Jun 2022 - Present
       description:
         - Working on developing deep learning based regression for prediction of protein ligand interaction under the supervision of Dr. Lei Xie.
+        - Successfully implemented a deep learning-based residue-residue contact classification with a BERT-based protein large language model (LLM) DISAE and achieved an accuracy of 98.81%.
+        - Modeled Mutli-Task learning-based deep regression algorithms for prediction of chemical protein binding affinity.
 
     - title: Summer Research Intern
       institution: School of Computing, Informatics, and Decision Systems Engineering, Arizona State University
       year: Jun 2022 - Dec 2022
       description:
         - Worked on developing deep generative models for synthesis of novel compounds under the supervision of Dr Ashif Iquebal.
+        - Performed extensive analysis on large chemical datasets (ChEMBL, ZINC, GDB-13) to identify the optimal dataset for training a deep generative model.
+        - Successfully trained the deep generative model, achieving exceptional results with 98.43% validity and 99.2% uniqueness of the generated compounds.  
 
     - title: Undergraduate Research Assistant
       institution: Department of Pharmacology, BITS Pilani, Hyderabad, India.
-      year: Jun 2021 - Present
+      year: Jun 2021 - Jun 2022
       description:
         - Rat eye pupillometry project under the supervision of Dr Srinivas Prasad K.
         - Developed novel algorithm for tracking and measuring the rat eye pupil in images and videos using image and video processing techniques.
