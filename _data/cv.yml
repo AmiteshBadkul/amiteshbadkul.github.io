@@ -21,14 +21,11 @@
 - title: Experience (Research)
   type: time_table
   contents:
-    - title:  Research Assistant (Supervisor: Dr. Lei Xie)
+    - title:  Research Assistant
       institution: Department of Computer Science, Hunter College, the City University of New York
       year: Jun 2022 - Present
       description:
-        - Utilized BLAST to analyze protein sequence similarities for large dataset (used in PortalCG), providing valuable insights into out-of-distribution generalization of PortalCG in predicting chemical protein interactions.
-        - Successfully implemented a deep learning-based residue-residue contact classification with a BERT-based protein large language model (LLM) DISAE and achieved an accuracy of 98.81%.
-        - Implemented a comprehensive pipeline leveraging diverse deep learning algorithms, including Transformers, Bi-directional LSTMs, Attention Mechanisms, and Deep CNNs, to predict protein binding affinity. Integrated LLMs - BERT-based DISAE and ESM-2 models into a deep learning architecture for protein binding affinity prediction.
-        - Modeled Mutli-Task learning-based deep regression algorithms for prediction of chemical protein binding affinity and achieved mean absolute error of 0.43, Pearson correlation of 0.86, and Spearman correlation of 0.88.
+        - Working on developing Graph Neural Networks for prediction of protein ligand interaction under the supervision of Dr. Lei Xie.
 
     - title: Summer Research Intern
       institution: School of Computing, Informatics, and Decision Systems Engineering, Arizona State University
