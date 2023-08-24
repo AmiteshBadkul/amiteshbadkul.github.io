@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Cdh23EC1
-date: 2023-04-20 11:59:00-0400 
-description: an example of a blog post with disqus comments
-tags: comments
-categories: sample-posts external-services
+title: Dynamics and Properties of Cdh23EC1
+date: 2023-04-20 11:59:00-0400
+description: Delving into the molecular dynamics of Cdh23EC1
+tags: md vmd namd
+categories: molecular-dynamics
 disqus_comments: true
 related_posts: false
 ---
