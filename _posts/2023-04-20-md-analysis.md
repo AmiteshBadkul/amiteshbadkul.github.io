@@ -18,9 +18,14 @@ Molecular Dynamics (MD) simulations have become an indispensable tool in computa
 
 Such comprehensive data comes with its challenges. It demands rigorous analysis to extract meaningful insights. The vastness of this data can be overwhelming, but therein lies its beauty. We can unravel the mysteries of protein behavior by dissecting and analyzing this data, as we will do in this post. From understanding structural stability and flexibility to pinpointing crucial interactions that dictate function, the analyses derived from MD simulations are invaluable. MD simulations, thus, enable us to perceive proteins not merely as static structures but as dynamic entities exhibiting complex behaviors in a simulated environment.
 
+|<img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Protein_CDH23_PDB_2KBR.png" width="50%" height="50%" />|
+|:--:|
+| *The intricate Cadherin-23 Protein* |
+
+To run a simple MD Simulation with only water molecules checkout [here](https://amiteshbadkul.github.io/blog/2022/md-simulation/).
 
 ### **Types of Analysis**
-In molecular dynamics (MD) simulations, data analysis is paramount. The sheer volume of data generated can be overwhelming. Still, by breaking it down into specific types of analysis, we can extract meaningful insights about the behavior of the protein in question. For our study on Cdh23EC1, we conducted the following analysesCertainly! Here's how the content can be structured as a README:
+In molecular dynamics (MD) simulations, data analysis is paramount. The sheer volume of data generated can be overwhelming. Still, by breaking it down into specific types of analysis, we can extract meaningful insights about the behavior of the protein in question. For our study on Cdh23EC1, we conducted the following analyses:
 
 1. Mean Square Displacement (MSD) and Diffusion Coefficient
 Quantifies the average motion of particles over time. The MSD measures the average squared displacement of atoms over time intervals, while the diffusion coefficient (derived from MSD) gauges how fast these particles diverge from their initial positions.
@@ -49,6 +54,39 @@ By conducting these analyses, we aim to piece together a comprehensive understan
 **Importance:**  
 Mean Square Displacement (MSD) is a critical metric that measures the average squared distance traveled by particles, providing a quantifiable view into the mobility of atoms in a system over time. The Diffusion Coefficient, derived from MSD, represents the rate at which molecules disperse from their initial positions. This coefficient is instrumental in characterizing transport behaviors in molecular systems.
 
+**Code:**
+```python
+# Select atoms
+all_atoms = u.select_atoms("all")
+
+# Initialize variables for MSD calculation
+n_frames = len(u.trajectory)
+msd = np.zeros(n_frames)
+
+# Loop over trajectory to calculate MSD
+for i, ts in enumerate(u.trajectory):
+    if i == 0:
+        initial_positions = all_atoms.positions.copy()
+    msd[i] = np.mean(np.square(np.linalg.norm(all_atoms.positions - initial_positions, axis=1)))
+
+# Calculate diffusion coefficient (D = MSD / 6t)
+delta_time = u.trajectory.dt  # Time step between frames in ps (pico-seconds)
+time = np.arange(n_frames) * delta_time
+diffusion_coefficient = msd[-1] / (6 * time[-1])
+
+# Plot MSD vs time
+plt.plot(time, msd)
+plt.xlabel("Time (ps)")
+plt.ylabel("MSD (Å²)")
+plt.show()
+
+print("Diffusion Coefficient:", diffusion_coefficient, "Å²/ps")
+```
+
+|<img src="https://imgur.com/zeBWuPa.png" width="50%" height="50%" />|
+|:--:|
+| *The Mean Square Displacement graph along time, indicating continous motion in the system* |
+
 **Analysis:**  
 For Cdh23EC1, a systematic observation of atomic movements was made. The provided MSD values began at zero and displayed a consistent upward trend, emphasizing the continual motion of atoms in the protein throughout the simulation. With the MSD data at hand, the calculated Diffusion Coefficient stood at \(1.767 \, \text{Å}^2/\text{ps}\). This value indicates a moderate diffusion rate, suggesting that Cdh23EC1 is neither entirely static nor exceptionally mobile in its given environment.
 
@@ -60,8 +98,31 @@ The data-driven insights from the MSD and Diffusion Coefficient values underscor
 **Importance:**  
 RMSF is a pivotal metric in molecular dynamics, spotlighting the variability in movement across residues in a protein. By interpreting these fluctuations, we can pinpoint regions exuding stability versus those with enhanced flexibility. Understanding such dynamism is essential, as it can demystify functionally significant zones in a protein, potentially involved in various molecular interactions or structural maintenance.
 
+**Code:**
+
+```python
+from MDAnalysis.analysis import rms
+
+# Select C-alpha atoms
+calphas = u.select_atoms("name CA")
+
+# Calculate RMSF
+rmsfer = rms.RMSF(calphas).run()
+
+# Plot RMSF
+plt.plot(rmsfer.rmsf)
+plt.xlabel('Residue Number')
+plt.ylabel('RMSF (Å)')
+plt.show()
+```
+
+|<img src="https://imgur.com/kTS6IyJ.png" width="50%" height="50%" />|
+|:--:|
+| *RMSF showing motions for different amino acids * |
+
+
 **Analysis:**  
-For Cdh23EC1, the RMSF values presented a mixed bag. The values ranged from approximately \(1.2 \, \text{Å}\) to a more pronounced fluctuation of over \(2.4 \, \text{Å}\). This variance suggests that while some protein parts remain relatively stable, other regions exhibit significant motion. For instance, residues that demonstrated lower RMSF values (around \(1.2-1.4 \, \text{Å}\)) are suggestive of a stable core, vital for preserving the protein's structural essence. Conversely, regions with RMSF values exceeding \(2.2 \, \text{Å}\) indicate pronounced flexibility. Such flexibility is typically associated with external protein loops, which are more dynamic, facilitating their interactions with the external milieu. The RMSF analysis also revealed distinct patterns of residue flexibility throughout the protein. Residues such as MET1, GLN2, and VAL3 showed moderate fluctuations, indicating a balanced behavior. In contrast, residues like ARG5, LEU6, and ASP37 exhibited higher fluctuations, suggesting they might be located in more flexible regions like loops or termini. Conversely, residues with lower RMSF values, such as PHE8, THR10, and HSD12, likely belong to the protein's more stable core or are part of structured domains.
+For Cdh23EC1, the RMSF values presented a mixed bag. The values ranged from approximately \(1.2 \, \text{Å}\) to a more pronounced fluctuation of over \(2.4 \, \text{Å}\). This variance suggests that while some protein parts remain relatively stable, other regions exhibit significant motion. For instance, residues that demonstrated lower RMSF values (around \(1.2-1.4 \, \text{Å}\)) are suggestive of a stable core, vital for preserving the protein's structural essence. Conversely, regions with RMSF values exceeding \(2.2 \, \text{Å}\) indicate pronounced flexibility. Such flexibility is typically associated with external protein loops, which are more dynamic, facilitating their interactions with the external milieu. The RMSF analysis also revealed distinct patterns of residue flexibility throughout the protein. Residues such as MET1, GLN2, and VAL3 showed moderate fluctuations, indicating a balanced behavior. In contrast, residues like ARG5, LEU6, and ASP37 exhibited higher fluctuations, suggesting they might be located in more flexible regions like loops or terminal. Conversely, residues with lower RMSF values, such as PHE8, THR10, and HSD12, likely belong to the protein's more stable core or are part of structured domains.
 
 **Conclusions:**  
 Cdh23EC1's RMSF profile portrays a protein that harmoniously blends structural rigidity with molecular adaptability. The stable core regions are juxtaposed against flexible external loops, each playing a distinct role. While the core provides structural integrity, the flexible zones might be central to Cdh23EC1's interactive capabilities, whether that involves binding, environmental sensing, or other molecular interactions. This dynamic equilibrium underscores the protein's multifaceted nature, hinting at its complex functional roles during the simulation.
