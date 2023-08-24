@@ -1,11 +1,12 @@
 ---
 layout: post
-title:  Dynamics and Properties of Cdh23EC1: An MD Simulation Analysis
-date: 2023-05-12 15:53:00-0400
-description: Delving into the molecular dynamics of Cdh23EC1
-tags: md analysis vmd
-categories: molecular-dynamics
-giscus_comments: true
+title: Cdh23EC1
+date: 2023-04-20 11:59:00-0400 
+description: an example of a blog post with disqus comments
+tags: comments
+categories: sample-posts external-services
+disqus_comments: true
+related_posts: false
 ---
 
 ## Introduction
@@ -109,12 +110,3 @@ In our examination of Cdh23EC1, we noticed that the radius of gyration values os
 
 **Conclusions:**  
 The consistent values of the radius of gyration for Cdh23EC1 are indicative of a protein that preserves its structural compactness over time. A stable radius of gyration suggests that the protein is likely to be in its native or functionally active conformation. By juxtaposing this data with other analyses, such as RMSF or hydrogen bond assessments, we can derive a comprehensive understanding of the regions in the protein that is both stable and flexible and how these attributes might contribute to the protein's overall function.
-
-## Files and Further Analysis
-The files for replicating the simulation are available [here](https://github.com/AmiteshBadkul/water-box). Furthermore, I utilized the output trajectory files to obtain the mean square displacement and further the diffusion coefficient, the blog post for the same is available [here](https://amiteshbadkul.github.io/posts/2022/04/msd/).
-
-## References
-1. [Basic molecular dynamics](http://li.mit.edu/A/Papers/05/Li05-2.8.pdf)
-2. [Introduction to Atomistic Simulations](http://people.virginia.edu/~lz2n/mse627/Eduardo)
-3. [Introduction to Molecular Dynamics Simulation - Michael P. Allen](https://static.igem.org/mediawiki/2009/3/3e/Introduction_to_molecular_Dynamics_Simulation.pdf)
-4. [Molecular Dynamics- Goran Wahnstrom](http://fy.chalmers.se/~tfsgw/CompPhys/lectures/MD_LectureNotes_181111.pdf)
