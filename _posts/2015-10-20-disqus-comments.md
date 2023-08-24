@@ -1,6 +1,6 @@
 ---
 layout: post
-title: a post with disqus comments
+title: Cdh23EC1
 date: 2015-10-20 11:59:00-0400
 description: an example of a blog post with disqus comments
 tags: comments
