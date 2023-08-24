@@ -18,7 +18,7 @@ Molecular Dynamics (MD) simulations have become an indispensable tool in computa
 
 Such comprehensive data comes with its challenges. It demands rigorous analysis to extract meaningful insights. The vastness of this data can be overwhelming, but therein lies its beauty. We can unravel the mysteries of protein behavior by dissecting and analyzing this data, as we will do in this post. From understanding structural stability and flexibility to pinpointing crucial interactions that dictate function, the analyses derived from MD simulations are invaluable. MD simulations, thus, enable us to perceive proteins not merely as static structures but as dynamic entities exhibiting complex behaviors in a simulated environment.
 
-|<img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Protein_CDH23_PDB_2KBR.png" width="50%" height="50%" />|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Protein_CDH23_PDB_2KBR.png" width="75%" height="75%" />|
 |:--:|
 | *The intricate Cadherin-23 Protein* |
 
@@ -83,7 +83,7 @@ plt.show()
 print("Diffusion Coefficient:", diffusion_coefficient, "Å²/ps")
 ```
 
-|<img src="https://imgur.com/zeBWuPa.png" width="50%" height="50%" />|
+|<img src="https://imgur.com/zeBWuPa.png" width="75%" height="75%" />|
 |:--:|
 | *The Mean Square Displacement graph along time, indicating continous motion in the system* |
 
@@ -116,7 +116,7 @@ plt.ylabel('RMSF (Å)')
 plt.show()
 ```
 
-|<img src="https://imgur.com/kTS6IyJ.png" width="50%" height="50%" />|
+|<img src="https://imgur.com/kTS6IyJ.png" width="75%" height="75%" />|
 |:--:|
 | *RMSF showing motions for different amino acids * |
 
@@ -152,7 +152,7 @@ plt.title('Hydrogen Bonds Over Time')
 plt.show()
 ```
 
-|<img src="https://imgur.com/K0vOfS2.png" width="50%" height="50%" />|
+|<img src="https://imgur.com/K0vOfS2.png" width="75%" height="75%" />|
 |:--:|
 | *Hydrogen Bonding interactions and how are they are affected over time* |
 
@@ -227,7 +227,7 @@ Salt bridge between residue 94 and 82 has an occupancy of 5.50
 Salt bridge between residue 95 and 82 has an occupancy of 33.70
 ```
 
-|<img src="https://imgur.com/qj4XjqZ.png" width="50%" height="50%" />|
+|<img src="https://imgur.com/qj4XjqZ.png" width="75%" height="75%" />|
 |:--:|
 | *Salt Bridge heatmap* |
 
@@ -290,7 +290,7 @@ plt.title('Position Autocorrelation Function for C-alpha atoms')
 plt.show()
 ```
 
-|<img src="https://imgur.com/y5Nj3BC.png" width="50%" height="50%" />|
+|<img src="https://imgur.com/y5Nj3BC.png" width="75%" height="75%" />|
 |:--:|
 | *PACF for the backbone of the proteins* |
 
@@ -326,7 +326,7 @@ plt.title('Radius of Gyration vs Time')
 plt.show()
 ```
 
-|<img src="https://imgur.com/nUahFd4.png" width="50%" height="50%" />|
+|<img src="https://imgur.com/nUahFd4.png" width="75%" height="75%" />|
 |:--:|
 | *Radius of Gyration of the protein indicating the stability of the fold* |
 
@@ -371,7 +371,7 @@ plt.ylabel('Residue Index')
 plt.show()
 ```
 
-|<img src="https://imgur.com/kjEnErN.png" width="50%" height="50%" />|
+|<img src="https://imgur.com/kjEnErN.png" width="75%" height="75%" />|
 |:--:|
 | *The Contact Map displaying the beautiful nature of proteins, their stabliity associated with their folds and interactions* |
 
