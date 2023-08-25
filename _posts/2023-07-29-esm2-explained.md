@@ -26,11 +26,11 @@ Language models like BERT have shown impressive capabilities for natural languag
 
 PLMs are commonly pretrained via objectives like masked language modeling (MLM), which trains the model to predict randomly masked tokens from context. Despite simple self-supervision, large PLMs exhibit emergent understanding of language semantics. This motivated hypothesis that pretraining PLMs on protein corpora may similarly elicit learning of sequence-structure mappings, given patterns in sequences encode structural properties. Because patterns in protein sequences inherently reflect structural constraints, pretraining large PLMs to model sequences may enable learning about the sequence-structure relationship. This could allow PLMs to infer 3D structural properties purely from sequence, despite no explicit supervision.
 
-Critically, insights from statistical mechanics [1] and coevolutionary sequence analysis [2,3] established that proteins’ 3D shapes constrain viable amino acid substitutions over evolution. Thus structural information becomes embedded in sequence statistics. Early bioinformatics methods leveraged this to predict aspects like secondary structure [4,5] or residue contacts [6,7].
+Critically, insights from statistical mechanics and coevolutionary sequence analysis established that proteins’ 3D shapes constrain viable amino acid substitutions over evolution. Thus structural information becomes embedded in sequence statistics. Early bioinformatics methods leveraged this to predict aspects like secondary structure or residue contacts.
 
-Machine learning advanced contact and structure prediction. Initial methods employed convolutional [8] or recurrent [9] architectures. Attention mechanisms then enabled modeling long-range dependencies, improving contact prediction [10]. Recently, large multitask networks integrating both sequence and structure data have achieved highly accurate structure prediction [11,12].
+Machine learning advanced contact and structure prediction. Initial methods employed convolutional or recurrent architectures. Attention mechanisms then enabled modeling long-range dependencies, improving contact prediction. Recently, large multitask networks integrating both sequence and structure data have achieved highly accurate structure prediction.
 
-In parallel, natural language processing advanced via scaling model size and data. Self-attention-based transformers [13] pretrained on text via MLM exhibit strong few-shot learning abilities [14,15]. ProtBert [16] first adapted BERT to proteins, showing MLM pretraining improved generalization. Subsequent PLMs including ProtT5 [17] and ESM-1b [18] demonstrated increasing capability to capture protein properties given sufficient scale.
+In parallel, natural language processing advanced via scaling model size and data. Self-attention-based transformers pretrained on text via MLM exhibit strong few-shot learning abilities. ProtBert first adapted BERT to proteins, showing MLM pretraining improved generalization. Subsequent PLMs including ProtT5 and ESM-1b demonstrated increasing capability to capture protein properties given sufficient scale.
 
 Scaling up MLM pretraining on large, diverse protein corpora may thus enable PLMs to implicitly learn mappings between sequence statistics and 3D conformations. This contrasts classic template-based or homology modeling, which compares query sequences against evolutionary relatives with known structures. PLMs can potentially associate sequences across fold space by identifying commonalities in sequence patterns induced by shared structural constraints. Realizing this possibility motivates recent research on large protein LM scaling.
 
@@ -44,14 +44,18 @@ Despite straightforward pretraining objectives like MLM, large LMs demonstrate i
 
 By pretraining on large, evolutionarily diverse sequence corpora, PLMs can potentially learn structural knowledge exceeding what is extractable from single protein families. PLMs complement traditional comparative modeling, which analyzes sequence covariation within groups of homologous proteins related by evolution. Modeling sequences collectively across protein space facilitates learning about fundamental physico-chemical constraints between sequences and structures.
 
-Recent PLMs exhibit promising capabilities for sequence-based structure prediction. For instance, models with over 10 billion parameters combined with differentiable folding heads can generate atomistic structural models from sequence alone [11]. Some PLMs have achieved major speedups compared to previous methods while maintaining accuracy. Expanding protein sequence databases via metagenomic sequencing presents exciting opportunities for enlarging the scope of structures PLMs can effectively model.
+Recent PLMs exhibit promising capabilities for sequence-based structure prediction. For instance, models with over 10 billion parameters combined with differentiable folding heads can generate atomistic structural models from sequence alone. Some PLMs have achieved major speedups compared to previous methods while maintaining accuracy. Expanding protein sequence databases via metagenomic sequencing presents exciting opportunities for enlarging the scope of structures PLMs can effectively model.
 
 Overall, the ability of large neural language models to exhibit emergent capabilities has inspired approaches scaling up pretraining on protein sequences. ESM-2 substantiates the potential for this strategy to yield models encoding rich structural knowledge within sequence representations. Ongoing growth in model scale and available sequences promises continued development in protein language modeling.
 
 ## Emergence of Structural Information in ESM-2
 The ESM-2 model demonstrates substantial improvements in pretraining scale enables progressive emergence of protein structural properties in language model representations. Both conceptual insights into sequence-structure mappings and empirical experience with language models contributed to ESM-2’s development.
 
-Theoretical principles [1-3] established proteins' 3D conformations constrain viable amino acid substitutions over evolution, embedding structural signatures within sequence statistics. This motivated pioneering bioinformatics approaches to leverage statistics for structure and function insight [4-7]. Meanwhile, large neural language models, despite simple objectives like masked LM pretraining, exhibited surprising emergent capabilities requiring understanding language semantics [14,15].
+|<img src="https://imgur.com/0YIhOEp.png" width="75%" height="75%" />|
+|:--:|
+| *ESM-2 Model* |
+
+Theoretical principles established proteins' 3D conformations constrain viable amino acid substitutions over evolution, embedding structural signatures within sequence statistics. This motivated pioneering bioinformatics approaches to leverage statistics for structure and function insight. Meanwhile, large neural language models, despite simple objectives like masked LM pretraining, exhibited surprising emergent capabilities requiring understanding language semantics.
 
 ESM-2 synthesizes these perspectives. It adopts a 24-layer transformer encoder architecture, with modifications including rotary position embeddings to better model long protein sequences. ESM-2 is pretrained on 65 million unique UniRef50 sequences using masked LM, enabling the model to learn sequence patterns and their structural implications.
 
@@ -71,7 +75,12 @@ This overall architecture optimizes prediction speed without sacrificing accurac
 
 ESM-2's training is critical to ESMFold's performance. Masked LM over 65+ million diverse sequences enables the language model to learn generalizable associations between sequence patterns and structural constraints. This rich pretraining endows ESMFold with single sequence prediction abilities exceeding alignment-dependent alternatives when alignments are ablated.
 
-Furthermore, ESM-2 perplexity predicts ESMFold accuracy, since perplexity improvements imply enhanced sequence representations that provide ESMFold superior structural insight. Overall, ESMFold's design elegantly combines the power of scale with architectural simplicity to advance protein structure prediction.
+Furthermore, ESM-2 perplexity predicts ESMFold accuracy, since perplexity improvements imply enhanced sequence representations that provide ESMFold superior structural insight. Overall, ESMFold's design elegantly combines the power of scale with architectural
+simplicity to advance protein structure prediction.
+
+|<img src="https://imgur.com/UKcvZas.png" width="75%" height="75%" />|
+|:--:|
+| *ESM-2 Model Perplexity* |
 
 The innovations of ESMFold highlight the potential for pretrained language models to accelerate structure prediction. Its speed and accuracy could expand high-quality prediction to large databases like metagenomic resources. Future work on integrating coevolutionary signals and physics-based refinement may further improve accuracy.
 
@@ -84,3 +93,11 @@ ESM-2 establishes clear trends of improving structural understanding with greate
 Looking forward, large language models like ESM-2 offer an exciting path to democratize structure prediction by distilling vast structural knowledge from sequences alone. Realizing this vision could accelerate discovery of new protein structures, functions, and mechanisms across biology. More broadly, scaling self-supervision may prove a general paradigm for eliciting emergence of complex reasoning abilities in artificial intelligence systems.
 
 The insights gained from ESM-2 and ESMFold underscore both the progress enabled by scaled language model pretraining as well as the vast room for continued innovation. Expanding compute power, data, and model architectures promises to further advance protein language modeling and structure prediction into the future.
+
+## References
+1. [Evolutionary-scale prediction of atomic-level protein structure with a language model](https://www.science.org/doi/10.1126/science.ade2574)
+2. [MSA Transformer](https://proceedings.mlr.press/v139/rao21a.html)
+3. [Highly accurate protein structure prediction with AlphaFold](https://www.nature.com/articles/s41586-021-03819-2/)
+4. [Attention is all you need](https://arxiv.org/abs/1706.03762)
+5. [Language Models are Unsupervised Multitask Learners](https://www.semanticscholar.org/paper/Language-Models-are-Unsupervised-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573cc28650d14dfe)
+6. [Direct-coupling analysis of residue coevolution captures native contacts across many protein families](https://www.pnas.org/doi/10.1073/pnas.1111471108)
