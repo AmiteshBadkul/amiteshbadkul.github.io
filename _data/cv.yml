@@ -21,8 +21,8 @@
 - title: Experience (Research)
   type: time_table
   contents:
-    - title:  Research Assistant
-      institution: Department of Computer Science, Hunter College, the City University of New York
+    - title:  Visiting Researcher
+      institution: Department of Computer Science, Graduate Center, the City University of New York
       year: Jun 2022 - Present
       description:
         - Working on developing deep learning based regression for prediction of protein ligand interaction under the supervision of Dr. Lei Xie.
