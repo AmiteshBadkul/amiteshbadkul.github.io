@@ -6,8 +6,9 @@
 
 SRC_BRANCH="master"
 DEPLOY_BRANCH="gh-pages"
+CI_MODE=false
 
-USAGE_MSG="usage: deploy [-h|--help] [-u|--user] [-s|--src SRC_BRANCH] [-d|--deploy DEPLOY_BRANCH] [--verbose] [--no-push]"
+USAGE_MSG="usage: deploy [-h|--help] [-u|--user] [-s|--src SRC_BRANCH] [-d|--deploy DEPLOY_BRANCH] [--verbose] [--no-push] [--ci]"
 
 while [[ $# > 0 ]]; do
     key="$1"
@@ -35,6 +36,9 @@ while [[ $# > 0 ]]; do
         --no-push)
         NO_PUSH="--no-push"
         ;;
+        --ci)
+        CI_MODE=true
+        ;;
         *)
         echo "Option $1 is unknown." >&2
         echo $USAGE_MSG >&2
@@ -51,11 +55,15 @@ echo "Deploying..."
 echo "Source branch: $SRC_BRANCH"
 echo "Deploy branch: $DEPLOY_BRANCH"
 
-read -r -p "Do you want to proceed? [y/N] " response
-if [[ ! $response =~ ^([yY][eE][sS]|[yY])+$ ]]
-then
-    echo "Aborting."
-    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
+# Skip confirmation prompt in CI mode
+if [[ "$CI_MODE" == "false" ]]; then
+    read -r -p "Do you want to proceed? [y/N] " response
+    if [[ ! $response =~ ^([yY][eE][sS]|[yY])+$ ]]; then
+        echo "Aborting."
+        [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
+    fi
+else
+    echo "CI mode detected, skipping confirmation prompt."
 fi
 
 # Check if there are any uncommitted changes
