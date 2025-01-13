@@ -34,14 +34,23 @@ jobs:
         git config --global user.name "GitHub Action"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
         if [[ ${GITHUB_REF} = refs/pull/*/merge ]]; then # pull request
-          echo "::set-output name=SRC_BRANCH::${GITHUB_HEAD_REF}"
+          echo "Setting up pull request deploy..."
+          echo "NO_PUSH=--no-push"
           echo "::set-output name=NO_PUSH::--no-push"
+          echo "::set-output name=SRC_BRANCH::${GITHUB_HEAD_REF}"
         elif [[ ${GITHUB_REF} = refs/heads/* ]]; then # branch, e.g. master, source etc
+          echo "Setting up branch deploy..."
           echo "::set-output name=SRC_BRANCH::${GITHUB_REF#refs/heads/}"
+          echo "::set-output name=NO_PUSH::"
         fi
         echo "::set-output name=DEPLOY_BRANCH::gh-pages"
+    - name: Debug deploy variables
+      run: |
+        echo "NO_PUSH: ${{ steps.setup.outputs.NO_PUSH }}"
+        echo "SRC_BRANCH: ${{ steps.setup.outputs.SRC_BRANCH }}"
+        echo "DEPLOY_BRANCH: ${{ steps.setup.outputs.DEPLOY_BRANCH }}"
     - name: Deploy website
       run: |
-        yes | bash bin/deploy --verbose ${{ steps.setup.outputs.NO_PUSH }}
-                    --src ${{ steps.setup.outputs.SRC_BRANCH }}
-                    --deploy ${{ steps.setup.outputs.DEPLOY_BRANCH }}
+        bash bin/deploy --verbose ${{ steps.setup.outputs.NO_PUSH }}
+          --src ${{ steps.setup.outputs.SRC_BRANCH }}
+          --deploy ${{ steps.setup.outputs.DEPLOY_BRANCH }}
