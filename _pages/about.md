@@ -16,13 +16,22 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Hi! I have recently graduated from [BITS Pilani, Hyderabad](https://www.bits-pilani.ac.in/hyderabad/), majoring in Electrical and Electronics Engineering & Chemistry. Currently, I have the privilege of conducting research under the guidance of [Dr. Lei Xie](http://compsci.hunter.cuny.edu/~leixie/).
+Hi! I’m a first-year PhD student in **Computer Science** under the guidance of [Dr. Lei Xie](http://compsci.hunter.cuny.edu/~leixie/) at the **Graduate Center, City University of New York**. My research delves into the intersection of **artificial intelligence, biology, and chemistry**, aiming to address critical challenges in drug discovery and computational sciences.
 
+### Current Research Interests
 
-My academic journey has sparked a strong interest in cutting-edge fields of **Machine Learning, Deep Learning, and their applications in Biology and Chemistry**. Additionally, I’m intrigued by **Molecular Dynamics Simulations**.
+- **Uncertainty Quantification for AI-based Drug Discovery**: Exploring methods to enhance reliability and safety in AI models applied to drug discovery.
+- **Multi-modal Representation Learning for Proteins and Chemicals**: Developing models to integrate diverse biological and chemical data and correlate these models to actual biological insights.
+- **Out-of-Distribution Generalization for Drug Discovery**: Ensuring AI models perform effectively even on data distributions beyond their training sets for improved applicability in real-world.
 
+### Academic and Personal Background
 
-Beyond my research pursuits, I find immense joy in reading about and exploring applications of Computational Sciences. I’m also passionate about Photography, and you’ll often find me capturing captivating moments. When it comes to sports, I am an enthusiastic player of Squash, Basketball, and Volleyball. Moreover, I’m an avid follower of Formula 1, always eager to stay up to date with the latest races and developments in the sport.
+I earned my undergraduate degree in **Electrical and Electronics Engineering** and masters degree in **Chemistry** from [BITS Pilani, Hyderabad](https://www.bits-pilani.ac.in/hyderabad/). My academic journey has cultivated a deep fascination for **Machine Learning, Deep Learning**, and their transformative applications in **Biology** and **Chemistry**. I’ve also explored the realms of **Molecular Dynamics Simulations**, helping me broaden my scientific perspective.
+
+When I’m not immersed in research, you’ll often find me pursuing my other passions:
+- **Photography**: Capturing life’s fleeting moments through the lens.
+- **Sports**: Enthusiastically playing squash, basketball, and volleyball.
+- **Formula 1**: Keeping up with the latest races and developments in the world of motorsport.
 
 I strongly value the role of documentation in research as it plays a crucial part in comprehending the subject matter more effectively, facilitating the systematic integration of thoughts, and identifying any potential flaws in the study. With the dedicated blog post section on this website, my primary objectives are to share my unique thought process to aid others in understanding various topics, receive constructive criticism to refine my work, enhance my own understanding of the subject matter, and actively contribute to the expansion of knowledge by introducing novel insights and augmenting existing knowledge.
 
