@@ -23,10 +23,14 @@ jobs:
         ruby-version: '3.0.2'
         bundler-cache: true
 
+    - name: Install compatible RubyGems version
+      run: |
+        gem install rubygems-update -v 3.3.26  # Install a version compatible with Ruby 3.0
+        update_rubygems
+
     - name: Install dependencies
       run: |
-        gem update --system
-        gem install bundler
+        gem install bundler -v 2.2.33  # Compatible Bundler version
         bundle update --bundler
         bundle install
 
