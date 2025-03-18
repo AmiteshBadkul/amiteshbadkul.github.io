@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Conformal Predictino In Drug Discovery
+title: Conformal Prediction In Drug Discovery
 date: 2025-03-10 09:26:00-0400
 description:
 tags: uncertainty ml dl
@@ -8,7 +8,6 @@ categories: literature-review
 disqus_comments: true
 related_posts: false
 ---
-Great! I will write a highly technical and detailed article on conformal prediction in the context of drug discovery. The article will include mathematical formulations, tables, and flowcharts while ensuring it aligns with the interests of researchers and industry professionals. Additionally, I will incorporate external sources beyond the provided PDFs to enrich the discussion. I will let you know when the article is ready for your review.
 
 # Introduction
 
