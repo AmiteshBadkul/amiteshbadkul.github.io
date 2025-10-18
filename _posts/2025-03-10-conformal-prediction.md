@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Conformal Prediction In Drug Discovery
-date: 2025-03-10 09:26:00-0400
+date: 2026-03-10 09:26:00-0400
 description:
 tags: uncertainty ml dl
 categories: literature-review

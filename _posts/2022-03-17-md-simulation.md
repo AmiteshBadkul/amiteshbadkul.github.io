@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Learnings from Molecular Dynamic Simulation
-date:   2022-03-17 16:40:16
+date:   2026-03-17 16:40:16
 description: understanding simple MD simulations
 tags: md vmd namd
 categories: molecular-dynamics
