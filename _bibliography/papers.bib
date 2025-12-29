@@ -24,18 +24,19 @@
   pdf = {CXR_ICSCI_accepted_submission.pdf}
 }
 
-@article{badkul2024emosaic,
-  title = {eMOSAIC: Multi-modal Out-of-distribution Uncertainty Quantification Streamlines Large-scale Polypharmacology},
+@article{badkul2025multimodal,
+  title = {Multimodal out-of-distribution individual uncertainty quantification enhances binding affinity prediction for polypharmacology},
   author = {Badkul, Amitesh and Xie, Li and Zhang, Shuo and Xie, Lei},
-  journal = {bioRxiv},
-  year = {2024},
-  doi = {10.1101/2024.01.05.574359},
-  publisher = {Cold Spring Harbor Laboratory},
-  abstract = {Polypharmacology has emerged as a new paradigm to discover novel therapeutics for unmet medical needs. Accurate, reliable and scalable predictions of protein-ligand binding affinity across multiple proteins are essential for polypharmacology. Machine learning is a promising tool for multi-target binding affinity predictions, often formulated as a multi-modal regression problem. Despite considerable efforts, three challenges remain: out-of-distribution (OOD) generalizations for compounds with new chemical scaffolds, uncertainty quantification of OOD predictions, and scalability to billions of compounds, which structure-based methods fail to achieve. To address aforementioned challenges, we propose a new model-agnostic anomaly detection-based uncertainty quantification method, embedding Mahalanobis Outlier Scoring and Anomaly Identification via Clustering (eMOSAIC). eMOSAIC uniquely quantifies distribution similarities or differences between the multi-modal representation of known cases and that of a new unseen one. We apply eMOSAIC to a multi-modal deep neural network model for multi-target ligand binding affinity predictions, leveraging a pre-trained strucrture-informed large protein language model. We extensively validate eMOSAIC in OOD settings, showing that it significantly outperforms state-of-the-art sequence-based deep learning and structure-based protein-ligand docking (PLD) methods by a large margin as well as existing uncertainty quantification methods. This finding highlights eMOSAIC{\textquoteright}s potential for real-world polypharmacology and other applications.Competing Interest StatementThe authors have declared no competing interest.},
-  url = {https://www.biorxiv.org/content/early/2024/09/23/2024.01.05.574359},
-  pdf = {https://www.biorxiv.org/content/early/2024/09/23/2024.01.05.574359.full.pdf},
+  journal = {Nature Machine Intelligence},
+  year = {2025},
+  doi = {10.1038/s42256-025-01151-2},
+  publisher = {Nature Publishing Group UK London},
+  abstract = {Polypharmacology, a single drug that targets multiple proteins, holds promise for addressing unmet medical needs. Achieving accurate, reliable and scalable predictions of protein–ligand binding affinity across multiple proteins is crucial to realizing the potential of polypharmacology. Machine learning offers a powerful tool for multitarget binding affinity prediction. However, three major challenges remain: generalizing predictions to out-of-distribution compounds that are structurally different from those in the training data; quantifying the uncertainty of predictions in out-of-distribution scenarios where the assumption underlying existing methods does not hold; and scaling to billions of compounds, which remains unattainable for current structure-based methods. Here, to overcome these challenges, we propose a model-agnostic anomaly detection-based individual uncertainty quantification method: embedding Mahalanobis Outlier Scoring and Anomaly Identification via Clustering (eMOSAIC). eMOSAIC features the divergence between the multimodal representations of known cases and unseen instances and quantifies individual prediction uncertainty on a compound-by-compound basis. We integrate eMOSAIC with a multimodal deep neural network for multitarget ligand binding affinity predictions, leveraging a structure-informed large protein language model. Comprehensive validation in out-of-distribution settings demonstrates that eMOSAIC significantly outperforms state-of-the-art sequence-based and structure-based methods as well as existing uncertainty quantification approaches. These findings underscore eMOSAIC’s potential to advance real-world polypharmacology and other applications that require robust predictions and scalable solutions.},
+  url = {https://www.nature.com/articles/s42256-025-01151-2},
+  pdf = {https://www.researchgate.net/publication/398836382_Multimodal_out-of-distribution_individual_uncertainty_quantification_enhances_binding_affinity_prediction_for_polypharmacology},
   poster = {poster_gc_ai_cuny-cropped.pdf},
-  code = {https://github.com/XieResearchGroup/eMOSAIC}
+  code = {https://github.com/XieResearchGroup/eMOSAIC}, 
+  image = {emosaic_main.png}
 }
 
 @article{cai2023end,
