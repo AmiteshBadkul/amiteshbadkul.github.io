@@ -11,6 +11,7 @@
       publisher = {arXiv},
       pdf = {https://arxiv.org/pdf/2510.15233},
       abstract = {Reliable, informative, and individual uncertainty quantification (UQ) remains missing in current ML community. This hinders the effective application of AI/ML to risk-sensitive domains. Most methods either fail to provide coverage on new data, inflate intervals so broadly that they are not actionable, or assign uncertainties that do not track actual error, especially under a distribution shift. In high-stakes drug discovery, protein-ligand affinity (PLI) prediction is especially challenging as assay noise is heterogeneous, chemical space is imbalanced and large, and practical evaluations routinely involve distribution shift. In this work, we introduce a novel uncertainty quantification method, Trustworthy Expert Split-conformal with Scaled Estimation for Efficient Reliable Adaptive intervals (TESSERA), that provides per-sample uncertainty with reliable coverage guarantee, informative and adaptive prediction interval widths that track the absolute error. We evaluate on protein-ligand binding affinity prediction under both independent and identically distributed (i.i.d.) and scaffold-based out-of-distribution (OOD) splits, comparing against strong UQ baselines. TESSERA attains near-nominal coverage and the best coverage-width trade-off as measured by the Coverage-Width Criterion (CWC), while maintaining competitive adaptivity (lowest Area Under the Sparsification Error (AUSE)). Size-Stratified Coverage (SSC) further confirms that intervals are right-sized, indicating width increases when data are scarce or noisy, and remain tight when predictions are reliable. By unifying Mixture of Expert (MoE) diversity with conformal calibration, TESSERA delivers trustworthy, tight, and adaptive uncertainties that are well-suited to selective prediction and downstream decision-making in the drug-discovery pipeline and other applications.},
+      preview = {tessera_first_rep.png}
 
 }
 
@@ -21,7 +22,8 @@
   year = {2025},
   abstract = {Chest radiography is a fast, low cost, and widely available first line test for suspected pneumonia and other respiratory infections, which makes automation clinically valuable where CT and subspecialty radiologists are limited. Yet adoption of automated CXR analysis using machine learning has been slowed by the memory and compute demands of large deep convolutional networks, their training time, and the need for GPU infrastructure, which limit deployment at the edge and in resource constrained settings. In acute care, separating COVID-19, bacterial pneumonia, and viral pneumonia is necessary for isolation, preventive care, so the classification is valuable and directly actionable by hospitals and clinics. We present a lightweight pipeline for multiclass CXR classification that applies a single level discrete wavelet transform and computes 11 statistical and texture descriptors per subband, producing a 44 dimensional feature vector for tabular classifiers. We evaluate CXRs stratified across four classes (healthy, COVID-19, bacterial pneumonia, viral pneumonia). Random Forest and XGBoost reach 96.83% and 97.76% test accuracy, respectively, outperforming transfer learned DCNN baselines on the same data. Ablations show that features pooled across subbands outperform any single subband and that texture descriptors including entropy, contrast, homogeneity, dissimilarity, and correlation carry most of the signal. Among wavelet bases, single level Bior6.8 performs best, while deeper decompositions reduce accuracy at this data scale. Because computation is limited to a grayscale wavelet transform and tabular learning, the method runs on commodity CPUs, has a small memory footprint, and is simple to reproduce, with strong per class performance for COVID-19, bacterial pneumonia, and viral pneu- monia that supports further treatment.},
   publisher = {International Conference on Integrating Cognitive Science and Computational Intelligence},
-  pdf = {CXR_ICSCI_accepted_submission.pdf}
+  pdf = {CXR_ICSCI_accepted_submission.pdf},
+  preview = {cxr_work2.png}
 }
 
 @article{badkul2025multimodal,
@@ -36,7 +38,7 @@
   pdf = {https://www.researchgate.net/publication/398836382_Multimodal_out-of-distribution_individual_uncertainty_quantification_enhances_binding_affinity_prediction_for_polypharmacology},
   poster = {poster_gc_ai_cuny-cropped.pdf},
   code = {https://github.com/XieResearchGroup/eMOSAIC}, 
-  image = {emosaic_main.png}
+  preview = {emosaic_main.png}
 }
 
 @article{cai2023end,
