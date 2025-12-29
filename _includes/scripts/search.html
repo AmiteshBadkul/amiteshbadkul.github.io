@@ -1,0 +1,22 @@
+<!-- ninja-keys search component -->
+<script src="https://unpkg.com/ninja-keys@{{ site.ninja_keys.version }}/dist/ninja-keys.min.js" defer></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize ninja-keys with search data
+  const ninja = document.querySelector('ninja-keys');
+  if (ninja) {
+    ninja.data = window.searchData || [];
+    
+    // Open search when clicking the search icon
+    const searchToggle = document.getElementById('search-toggle');
+    if (searchToggle) {
+      searchToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        ninja.open();
+      });
+    }
+  }
+});
+</script>
+

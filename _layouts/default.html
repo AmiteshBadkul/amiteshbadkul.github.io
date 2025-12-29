@@ -12,6 +12,9 @@
   <!-- Body -->
   <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
 
+    <!-- Search -->
+    {%- include search.html %}
+
     <!-- Header -->
     {%- include header.html %}
 
@@ -30,5 +33,6 @@
     {% include scripts/misc.html %}
     {% include scripts/mathjax.html %}
     {% include scripts/analytics.html %}
+    {% include scripts/search.html %}
   </body>
 </html>

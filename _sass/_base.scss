@@ -238,7 +238,7 @@ blockquote {
   }
 }
 
-#light-toggle {
+#light-toggle, #search-toggle {
   padding: 0;
   border: 0;
   background-color: inherit;
@@ -246,6 +246,18 @@ blockquote {
   &:hover {
     color: var(--global-hover-color);
   }
+}
+
+// Search (ninja-keys)
+ninja-keys {
+  --ninja-accent-color: var(--global-theme-color);
+  --ninja-secondary-background-color: var(--global-bg-color);
+  --ninja-modal-background: var(--global-bg-color);
+  --ninja-text-color: var(--global-text-color);
+  --ninja-secondary-text-color: var(--global-text-color-light);
+  --ninja-footer-background: var(--global-card-bg-color);
+  --ninja-selected-background: var(--global-code-bg-color);
+  --ninja-z-index: 1050;
 }
 
 // Social (bottom)
@@ -494,8 +506,9 @@ footer.sticky-bottom {
       margin-bottom: 1rem;
       .preview {
         width: 100%;
-        min-width: 80px;
-        max-width: 200px;
+        min-width: 100px;
+        max-width: 300px;
+        cursor: zoom-in;
       }
       .abbr {
         height: 2rem;
