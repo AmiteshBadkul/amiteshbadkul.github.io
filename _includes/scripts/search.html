@@ -1,5 +1,5 @@
 <!-- ninja-keys search component -->
-<script src="https://unpkg.com/ninja-keys@{{ site.ninja_keys.version }}/dist/ninja-keys.min.js" defer></script>
+<script type="module" src="https://unpkg.com/ninja-keys@{{ site.ninja_keys.version }}?module"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -7,6 +7,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const ninja = document.querySelector('ninja-keys');
   if (ninja) {
     ninja.data = window.searchData || [];
+    // enable Cmd/Ctrl+K shortcut to open search
+    window.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        ninja.open();
+      }
+    });
     
     // Open search when clicking the search icon
     const searchToggle = document.getElementById('search-toggle');
@@ -19,4 +26,3 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
-
