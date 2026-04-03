@@ -167,10 +167,6 @@
             <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Poster</a>
             {%- endif %}
           {%- endif %}
-          {%- if entry.title %}
-            {%- assign scholar_query = entry.title | uri_escape %}
-            <a href="https://scholar.google.com/scholar?q={{ scholar_query }}" class="btn btn-sm z-depth-0" role="button">Citations</a>
-          {%- endif %}
           {%- if entry.slides %}
             {% if entry.slides contains '://' -%}
             <a href="{{ entry.slides }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
