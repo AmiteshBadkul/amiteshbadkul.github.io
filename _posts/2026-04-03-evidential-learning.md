@@ -287,12 +287,12 @@ Three evaluation axes are used:
     <!-- Left panel -->
     <div style="display:flex; flex-direction:column; gap:0.8rem;">
       <img
-        src="assests/img/edl/cls_probs.png"
+        src="/assests/img/edl/cls_probs.png"
         alt="Softmax classification probabilities for rotated digit 1 across rotation angles"
         style="width:100%; height:auto; display:block; border:1px solid #e5e7eb; border-radius:10px; background:#fff;"
       />
       <img
-        src="assests/img/edl/rotating.png"
+        src="/assests/img/edl/rotating.png"
         alt="Sequence of rotated digit 1 images"
         style="width:100%; height:auto; display:block; border:1px solid #e5e7eb; border-radius:10px; background:#fff;"
       />
