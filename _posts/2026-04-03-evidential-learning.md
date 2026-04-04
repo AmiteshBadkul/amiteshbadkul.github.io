@@ -287,12 +287,12 @@ Three evaluation axes are used:
     <!-- Left panel -->
     <div style="display:flex; flex-direction:column; gap:0.8rem;">
       <img
-        src="/assests/img/edl/cls_probs.png"
+        src="/assets/img/edl/cls_probs.png"
         alt="Softmax classification probabilities for rotated digit 1 across rotation angles"
         style="width:100%; height:auto; display:block; border:1px solid #e5e7eb; border-radius:10px; background:#fff;"
       />
       <img
-        src="/assests/img/edl/rotating.png"
+        src="/assets/img/edl/rotating.png"
         alt="Sequence of rotated digit 1 images"
         style="width:100%; height:auto; display:block; border:1px solid #e5e7eb; border-radius:10px; background:#fff;"
       />
@@ -309,12 +309,12 @@ Three evaluation axes are used:
     <!-- Right panel -->
     <div style="display:flex; flex-direction:column; gap:0.8rem;">
       <img
-        src="/assests/img/edl/cls_probs_dir.png"
+        src="/assets/img/edl/cls_probs_dir.png"
         alt="Evidential deep learning probabilities and uncertainty for rotated digit 1 across rotation angles"
         style="width:100%; height:auto; display:block; border:1px solid #e5e7eb; border-radius:10px; background:#fff;"
       />
       <img
-        src="/assests/img/edl/rotating_dir.png"
+        src="/assets/img/edl/rotating_dir.png"
         alt="Sequence of rotated digit 1 images"
         style="width:100%; height:auto; display:block; border:1px solid #e5e7eb; border-radius:10px; background:#fff;"
       />
@@ -337,7 +337,9 @@ Three evaluation axes are used:
     color: #555;
   ">
     <strong>Figure 1.</strong> Classification of a rotated digit <em>1</em> as the rotation angle varies from 0° to 180°. 
-    The softmax model on the left remains overconfident on incorrect classes, whereas the evidential model on the right explicitly increases uncertainty under rotation.
+    The softmax model on the left remains overconfident on incorrect classes, whereas the evidential model on the right explicitly increases uncertainty under rotation. (Image source: <a href="https://arxiv.org/pdf/1806.01768" target="_blank" rel="noopener noreferrer">
+    Evidential Deep Learning to Quantify Classification Uncertainty
+  </a>)
   </figcaption>
 </figure>
 
