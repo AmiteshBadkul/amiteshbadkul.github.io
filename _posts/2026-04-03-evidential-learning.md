@@ -2,7 +2,7 @@
 layout: post
 title: Evidential Deep Learning
 date: 2026-04-03 13:56:00-0400
-description: A review of "Evidential Deep Learning to Quantify Classification Uncertainty" by Sensoy, Kaplan & Kandemir (NeurIPS 2018).
+description: A review of "Evidential Deep Learning to Quantify Classification Uncertainty" by Sensoy, Kaplan & Kandemir.
 tags: uncertainty ml dl
 categories: literature-review
 disqus_comments: true
@@ -25,68 +25,65 @@ For low-stakes tasks such as classifying cats versus dogs, tagging social media 
 - **Medical diagnosis:** ML-assisted diagnostic tools that assign inflated confidence to incorrect predictions can mislead clinicians, particularly in edge cases or underrepresented populations [[Obermeyer & Emanuel, 2016](https://www.nejm.org/doi/full/10.1056/NEJMp1606181)].
 - **Drug discovery:** Molecular property prediction models that cannot flag their own uncertainty may wastefully prioritize compounds unlikely to succeed in wet-lab validation.
 
-The fundamental need is **per-prediction uncertainty quantification**: alongside each output, the model should report how confident it actually is in that output. This makes models more reliable, more interpretable, and more appropriate for deployment in systems where incorrect predictions have real consequences. If an autonomous vehicle knows it is uncertain, due a sensor is degraded or the scenario is novel, it can hand control back to the driver rather than guess.
+The fundamental need is **per-prediction uncertainty quantification**: alongside each output, the model should report how confident it actually is in that output. This makes models more reliable, more interpretable, and more appropriate for deployment in systems where incorrect predictions have real consequences. If an autonomous vehicle knows it is uncertain, if a sensor is degraded or the scenario is novel, it can hand control back to the driver rather than guess.
 
 
 Uncertainty quantification in deep learning was not new in 2018, but it was largely confined to Bayesian approaches with significant computational overhead. The figure below shows the timeline of key methods, from early BNNs and Gaussian Processes through to MC Dropout and Deep Ensembles, all of which existed before EDL but required either approximate inference or multiple forward passes. Using raw softmax probabilities as a confidence proxy remained the practical default for most classification pipelines precisely because all the principled alternatives were expensive.
 
 <div style="width:100%; overflow-x:auto; margin: 2rem 0;">
-<svg viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg" 
-     font-family="Georgia, serif" style="width:100%; max-width:860px;">
-  <!-- axis -->
-  <line x1="60" y1="200" x2="820" y2="200" stroke="#ccc" stroke-width="1.5"/>
-  <!-- year labels -->
-  <text x="60"  y="225" text-anchor="middle" font-size="12" fill="#888">2011</text>
-  <text x="190" y="225" text-anchor="middle" font-size="12" fill="#888">2013</text>
-  <text x="320" y="225" text-anchor="middle" font-size="12" fill="#888">2015</text>
-  <text x="450" y="225" text-anchor="middle" font-size="12" fill="#888">2016</text>
-  <text x="580" y="225" text-anchor="middle" font-size="12" fill="#888">2017</text>
-  <text x="740" y="225" text-anchor="middle" font-size="12" fill="#888">2018</text>
-  <!-- events -->
-  <!-- BNNs -->
-  <circle cx="60" cy="200" r="7" fill="#9b59b6"/>
-  <line x1="60" y1="193" x2="60" y2="130" stroke="#9b59b6" stroke-width="1" stroke-dasharray="4,3"/>
-  <text x="60" y="125" text-anchor="middle" font-size="11" fill="#9b59b6" font-weight="bold">BNNs</text>
-  <text x="60" y="112" text-anchor="middle" font-size="10" fill="#666">(MacKay 1992,</text>
-  <text x="60" y="100" text-anchor="middle" font-size="10" fill="#666">Neal 1996)</text>
-  <!-- GPs -->
-  <circle cx="190" cy="200" r="7" fill="#2980b9"/>
-  <line x1="190" y1="193" x2="190" y2="145" stroke="#2980b9" stroke-width="1" stroke-dasharray="4,3"/>
-  <text x="190" y="140" text-anchor="middle" font-size="11" fill="#2980b9" font-weight="bold">Deep GPs</text>
-  <text x="190" y="128" text-anchor="middle" font-size="10" fill="#666">(Damianou &amp;</text>
-  <text x="190" y="116" text-anchor="middle" font-size="10" fill="#666">Lawrence 2013)</text>
-  <!-- Bayes by Backprop -->
-  <circle cx="320" cy="200" r="7" fill="#27ae60"/>
-  <line x1="320" y1="193" x2="320" y2="130" stroke="#27ae60" stroke-width="1" stroke-dasharray="4,3"/>
-  <text x="320" y="125" text-anchor="middle" font-size="11" fill="#27ae60" font-weight="bold">Bayes by Backprop</text>
-  <text x="320" y="112" text-anchor="middle" font-size="10" fill="#666">(Blundell et al.</text>
-  <text x="320" y="100" text-anchor="middle" font-size="10" fill="#666">2015)</text>
-  <!-- MC Dropout -->
-  <circle cx="450" cy="200" r="7" fill="#e67e22"/>
-  <line x1="450" y1="193" x2="450" y2="145" stroke="#e67e22" stroke-width="1" stroke-dasharray="4,3"/>
-  <text x="450" y="140" text-anchor="middle" font-size="11" fill="#e67e22" font-weight="bold">MC Dropout</text>
-  <text x="450" y="128" text-anchor="middle" font-size="10" fill="#666">(Gal &amp; Ghahramani</text>
-  <text x="450" y="116" text-anchor="middle" font-size="10" fill="#666">2016)</text>
-  <!-- Calibration -->
-  <circle cx="580" cy="200" r="7" fill="#c0392b"/>
-  <line x1="580" y1="193" x2="580" y2="130" stroke="#c0392b" stroke-width="1" stroke-dasharray="4,3"/>
-  <text x="580" y="125" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="bold">Calibration + Ensembles</text>
-  <text x="580" y="112" text-anchor="middle" font-size="10" fill="#666">(Guo 2017,</text>
-  <text x="580" y="100" text-anchor="middle" font-size="10" fill="#666">Lakshminarayanan 2017)</text>
-  <!-- EDL -->
-  <circle cx="740" cy="200" r="9" fill="#1a7a8a"/>
-  <line x1="740" y1="191" x2="740" y2="145" stroke="#1a7a8a" stroke-width="2"/>
-  <text x="740" y="140" text-anchor="middle" font-size="12" fill="#1a7a8a" font-weight="bold">EDL (this paper)</text>
-  <text x="740" y="128" text-anchor="middle" font-size="10" fill="#666">(Sensoy et al.</text>
-  <text x="740" y="116" text-anchor="middle" font-size="10" fill="#666">NeurIPS 2018)</text>
-  <!-- bracket label -->
-  <text x="440" y="270" text-anchor="middle" font-size="11" fill="#aaa" font-style="italic">
-    All prior methods: expensive inference or multiple forward passes
-  </text>
-  <line x1="60" y1="257" x2="580" y2="257" stroke="#ccc" stroke-width="1"/>
-  <line x1="60" y1="252" x2="60" y2="262" stroke="#ccc" stroke-width="1"/>
-  <line x1="580" y1="252" x2="580" y2="262" stroke="#ccc" stroke-width="1"/>
-</svg>
+  <svg
+    viewBox="0 0 860 300"
+    xmlns="http://www.w3.org/2000/svg"
+    style="width:100%; max-width:860px; font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">
+    <!-- axis -->
+    <line x1="70" y1="200" x2="790" y2="200" stroke="#d7d7d7" stroke-width="1.5"/>
+
+    <!-- year labels -->
+    <text x="70"  y="226" text-anchor="middle" font-size="12" fill="#8a8a8a">2011</text>
+    <text x="210" y="226" text-anchor="middle" font-size="12" fill="#8a8a8a">2013</text>
+    <text x="350" y="226" text-anchor="middle" font-size="12" fill="#8a8a8a">2015</text>
+    <text x="490" y="226" text-anchor="middle" font-size="12" fill="#8a8a8a">2016</text>
+    <text x="710" y="226" text-anchor="middle" font-size="12" fill="#8a8a8a">2018</text>
+
+    <!-- BNNs -->
+    <circle cx="70" cy="200" r="8" fill="#b79ad6"/>
+    <line x1="70" y1="192" x2="70" y2="132" stroke="#b79ad6" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <text x="70" y="124" text-anchor="middle" font-size="12" fill="#7f66ad" font-weight="600">BNNs</text>
+    <text x="70" y="108" text-anchor="middle" font-size="10" fill="#7f7f7f">MacKay, Neal</text>
+
+    <!-- Deep GPs -->
+    <circle cx="210" cy="200" r="8" fill="#8db7df"/>
+    <line x1="210" y1="192" x2="210" y2="132" stroke="#8db7df" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <text x="210" y="124" text-anchor="middle" font-size="12" fill="#5f8fbc" font-weight="600">Deep GPs</text>
+    <text x="210" y="108" text-anchor="middle" font-size="10" fill="#7f7f7f">2013</text>
+
+    <!-- Bayes by Backprop -->
+    <circle cx="350" cy="200" r="8" fill="#8fc8a9"/>
+    <line x1="350" y1="192" x2="350" y2="132" stroke="#8fc8a9" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <text x="350" y="124" text-anchor="middle" font-size="12" fill="#5d9a78" font-weight="600">Bayes by Backprop</text>
+    <text x="350" y="108" text-anchor="middle" font-size="10" fill="#7f7f7f">2015</text>
+
+    <!-- MC Dropout -->
+    <circle cx="490" cy="200" r="8" fill="#e6b483"/>
+    <line x1="490" y1="192" x2="490" y2="132" stroke="#e6b483" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <text x="490" y="124" text-anchor="middle" font-size="12" fill="#c48745" font-weight="600">MC Dropout</text>
+    <text x="490" y="108" text-anchor="middle" font-size="10" fill="#7f7f7f">2016</text>
+
+    <!-- EDL -->
+    <circle cx="710" cy="200" r="10" fill="#7db9c4"/>
+    <line x1="710" y1="190" x2="710" y2="140" stroke="#7db9c4" stroke-width="2"/>
+    <text x="710" y="130" text-anchor="middle" font-size="13" fill="#4d8f9a" font-weight="700">EDL (this paper)</text>
+    <text x="710" y="112" text-anchor="middle" font-size="10" fill="#7f7f7f">NeurIPS 2018</text>
+
+    <!-- bracket -->
+    <line x1="70" y1="258" x2="490" y2="258" stroke="#d7d7d7" stroke-width="1.2"/>
+    <line x1="70" y1="252" x2="70" y2="264" stroke="#d7d7d7" stroke-width="1.2"/>
+    <line x1="490" y1="252" x2="490" y2="264" stroke="#d7d7d7" stroke-width="1.2"/>
+
+    <text x="280" y="280" text-anchor="middle" font-size="11" fill="#9a9a9a" font-style="italic">
+      Prior methods often require expensive inference or multiple forward passes
+    </text>
+  </svg>
 </div>
 
 ---
@@ -119,7 +116,7 @@ This creates two related problems.
               padding: 0.8rem 1.2rem; background: var(--global-bg-color); 
               border-radius: 0 6px 6px 0; opacity: 0.75;">
     <p style="margin:0; font-style:italic; color: var(--global-text-color);">
-      "I predict class A with 80% probability, but this estimate is highly uncertain,  treat it with scepticism."
+      "I predict class A with 80% probability, but this estimate is highly uncertain,  treat it with caution."
     </p>
   </div>
 
@@ -136,7 +133,7 @@ $$p(y^* \mid x^*, \mathcal{D}) = \int p(y^* \mid x^*, \theta) \, p(\theta \mid \
 
 The variance of this **posterior predictive distribution** captures epistemic uncertainty, the uncertainty arising from limited data rather than from irreducible noise in the labels.
 
-The problem is that this integral is intractable for deep networks. In practice, BNNs approximate it using Monte Carlo sampling (e.g., running the network multiple times with dropout active and treating the variation in outputs as a proxy for uncertainty,  as in Gal & Ghahramani, 2016). This method is a crude approximation of the models' true uncertainty [find a paper which proves this]. Methods such as deep ensembles are computationally expensive, and don't scale well. Gaussian Processes (GPs) offer a non-parametric alternative with closed-form uncertainty estimates, but they do not scale to the input dimensionalities typical of image or language data without significant approximation that affects the performance.
+The problem is that this integral is intractable for deep networks. In practice, BNNs approximate it using Monte Carlo sampling (e.g., running the network multiple times with dropout active and treating the variation in outputs as a proxy for uncertainty,  as in Gal & Ghahramani, 2016). Methods such as MC Dropout provide a practical approximation to predictive uncertainty, but they do not recover the full Bayesian posterior exactly and can misestimate uncertainty under distribution shift. Methods such as deep ensembles are computationally expensive, and don't scale well. Gaussian Processes (GPs) offer a non-parametric alternative with closed-form uncertainty estimates, but they do not scale to the input dimensionalities typical of image or language data without significant approximation that affects the performance.
 
 EDL takes a different route entirely. Rather than inferring a distribution over weights and propagating it through the network, it directly outputs a distribution over possible class probability vectors, a Dirichlet distribution, from a single deterministic forward pass.
 
@@ -146,11 +143,18 @@ EDL takes a different route entirely. Rather than inferring a distribution over 
 
 Sensoy et al. draw on the **Theory of Subjective Logic** [Josang, 2016], which is itself a formalization of the **Dempster-Shafer Theory of Evidence (DST)** [Dempster, 1968] using probability distributions. The full mathematical background is outside the scope of this post, the authors too don't explore these foundations as part of their paper, but the core idea is this:
 
-Classical probability requires your belief to be fully distributed across the known hypotheses. DST relaxes this. It allows you to assign belief mass to *sets* of hypotheses, including the entire set, which is a formal way of saying *"I do not know which of these is true."* Subjective Logic operationalizes this using Dirichlet distributions, and EDL is the deep learning adaptation.
+Classical probability requires your belief to be fully distributed across the known hypotheses. DST relaxes this. It allows you to assign belief mass to *sets* of hypotheses, including the entire set, which is a formal way of saying *"I do not know which of these is true."* Subjective Logic borrows this using Dirichlet distributions, and EDL is the deep learning adaptation.
 
 The key architectural change relative to a standard classifier is minimal:
 
-> **Replace the softmax output layer with a ReLU activation.**
+<div style="margin: 1.75rem 0; padding: 1rem 1.1rem; border-left: 5px solid #b78bd0; background: #faf7fc; border-radius: 8px;">
+  <div style="font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #8a63a8; margin-bottom: 0.45rem;">
+    Important
+  </div>
+  <div style="font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 1.05rem; line-height: 1.6; color: #222;">
+    Replace the softmax output layer with a nonnegative evidence-producing activation, such as ReLU.
+  </div>
+</div>
 
 The non-negative outputs of this layer are interpreted as an **evidence vector** $$e = [e_1, \ldots, e_K]$$, where $$e_k \geq 0$$ is the evidence the network has collected in favour of class $$k$$. The Dirichlet parameters are then:
 
@@ -159,7 +163,13 @@ $$\alpha_k = e_k + 1$$
 So when the network has collected zero evidence for all classes (completely uncertain), all $$\alpha_k = 1$$, giving the uniform Dirichlet, the "I do not know" state. As evidence accumulates, the Dirichlet concentrates around a particular class assignment.
 
 <!--- Suggested figure: a 3D simplex showing (1) softmax as a single point on the simplex, and (2) the Dirichlet as a distribution over the simplex, visualised as a density. This would make the "factory of point estimates" idea concrete. -->
-
+{% include figure.liquid
+  loading="eager"
+  path="assets/img/edl/simplex_compare.png"
+  alt="Softmax as a point estimate and EDL as a distribution over the simplex"
+  caption="A geometric view of first-order versus second-order uncertainty. Softmax returns one probability vector, shown as a single point on the simplex. Evidential Deep Learning instead places a Dirichlet distribution over possible probability vectors, allowing uncertainty to be expressed over the simplex itself."
+  class="img-fluid rounded z-depth-1"
+%}
 ---
 
 ## The Math
@@ -210,7 +220,7 @@ The constraint \(u + \sum_k b_k = 1\) always holds. When evidence is zero,
 
 The constraint $$u + \sum_{k} b_k = 1$$ always holds. When evidence is zero for all classes, $$S = K$$, so $$u = 1$$, total uncertainty. As evidence grows, $$S$$ grows, $$u$$ shrinks, and the belief masses increase.
 
-Note that $$\hat{p}_k$$ is the EDL analog of the softmax output. For in-distribution inputs, these should roughly agree with softmax probabilities. The important addition is $$S$$: a large $$S$$ means the Dirichlet is sharply concentrated and $$\hat{p}_k$$ is reliable; a small $$S$$ (close to $$K$$) means the model has little evidence and the predicted probability should not be trusted.
+Note that $$\hat{p}_k$$ is the EDL analog of the softmax output. For in-distribution inputs, these plays a role analogous to softmax output. The important addition is $$S$$: a large $$S$$ means the Dirichlet is sharply concentrated and $$\hat{p}_k$$ is reliable; a small $$S$$ (close to $$K$$) means the model has little evidence and the predicted probability should not be trusted.
 
 ---
 
@@ -260,6 +270,70 @@ Three evaluation axes are used:
 
 <!--- Suggested: include Figures 1, 3, and 4 from the paper with proper attribution (arXiv open access). Figure 1 (rotated digit) is especially compelling for a lay audience. -->
 
+<figure style="margin: 2.25rem 0; width: 100%;">
+  <div style="
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  ">
+    <!-- Left panel -->
+    <div style="display:flex; flex-direction:column; gap:0.8rem;">
+      <img
+        src="assests/img/edl/cls_probs.pdf"
+        alt="Softmax classification probabilities for rotated digit 1 across rotation angles"
+        style="width:100%; height:auto; display:block; border:1px solid #e5e7eb; border-radius:10px; background:#fff;"
+      />
+      <img
+        src="assests/img/edl/rotating.pdf"
+        alt="Sequence of rotated digit 1 images"
+        style="width:100%; height:auto; display:block; border:1px solid #e5e7eb; border-radius:10px; background:#fff;"
+      />
+      <div style="
+        font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        font-size: 0.96rem;
+        line-height: 1.55;
+        color: #444;
+      ">
+        <strong>Left:</strong> Standard softmax probabilities stay highly confident even when the rotated digit becomes ambiguous or is misclassified.
+      </div>
+    </div>
+
+    <!-- Right panel -->
+    <div style="display:flex; flex-direction:column; gap:0.8rem;">
+      <img
+        src="/assests/img/edl/cls_probs_dir.png"
+        alt="Evidential deep learning probabilities and uncertainty for rotated digit 1 across rotation angles"
+        style="width:100%; height:auto; display:block; border:1px solid #e5e7eb; border-radius:10px; background:#fff;"
+      />
+      <img
+        src="/assests/img/edl/rotating_dir.png"
+        alt="Sequence of rotated digit 1 images"
+        style="width:100%; height:auto; display:block; border:1px solid #e5e7eb; border-radius:10px; background:#fff;"
+      />
+      <div style="
+        font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        font-size: 0.96rem;
+        line-height: 1.55;
+        color: #444;
+      ">
+        <strong>Right:</strong> EDL keeps class probabilities modest and raises uncertainty sharply once the input moves away from the familiar training regime.
+      </div>
+    </div>
+  </div>
+
+  <figcaption style="
+    margin-top: 1rem;
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: #555;
+  ">
+    <strong>Figure 1.</strong> Classification of a rotated digit <em>1</em> as the rotation angle varies from 0° to 180°. 
+    The softmax model on the left remains overconfident on incorrect classes, whereas the evidential model on the right explicitly increases uncertainty under rotation.
+  </figcaption>
+</figure>
+
 ---
 
 # Limitations and Critique
@@ -285,11 +359,11 @@ The main gaps are the unsubstantiated overfitting claim and the absence of ablat
 # References
 
 1. Sensoy, M., Kaplan, L., & Kandemir, M. (2018). Evidential Deep Learning to Quantify Classification Uncertainty. *NeurIPS 2018*. [arXiv:1806.01768](https://arxiv.org/abs/1806.01768)
-2. Josang, A. (2016). *Subjective Logic: A Formalism for Reasoning Under Uncertainty*. Springer.
+2. Josang, A. (2016). [Subjective Logic: A Formalism for Reasoning Under Uncertainty](https://link.springer.com/book/10.1007/978-3-319-42337-1). Springer.
 3. Dempster, A. P. (1968). A Generalization of Bayesian Inference. *Journal of the Royal Statistical Society: Series B*.
-4. Gal, Y., & Ghahramani, Z. (2016). Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning. *ICML 2016*.
-5. Guo, C., Pleiss, G., Sun, Y., & Weinberger, K. Q. (2017). On Calibration of Modern Neural Networks. *ICML 2017*.
-6. Lakshminarayanan, B., Pritzel, A., & Blundell, C. (2017). Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles. *NeurIPS 2017*.
-7. Louizos, C., & Welling, M. (2017). Multiplicative Normalizing Flows for Variational Bayesian Neural Networks. *ICML 2017*.
-8. Goodfellow, I. J., Shlens, J., & Szegedy, C. (2014). Explaining and Harnessing Adversarial Examples. *arXiv:1412.6572*.
-9. Obermeyer, Z., & Emanuel, E. J. (2016). Predicting the Future — Big Data, Machine Learning, and Clinical Medicine. *NEJM*.
+4. Gal, Y., & Ghahramani, Z. (2016). [Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning](https://proceedings.mlr.press/v48/gal16.html). *ICML 2016*.
+5. Guo, C., Pleiss, G., Sun, Y., & Weinberger, K. Q. (2017). [On Calibration of Modern Neural Networks](https://proceedings.mlr.press/v70/guo17a.html). *ICML 2017*.
+6. Lakshminarayanan, B., Pritzel, A., & Blundell, C. (2017). [Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles](https://proceedings.neurips.cc/paper_files/paper/2017/hash/9ef2ed4b7fd2c810847ffa5fa85bce38-Abstract.html). *NeurIPS 2017*.
+7. Louizos, C., & Welling, M. (2017). [Multiplicative Normalizing Flows for Variational Bayesian Neural Networks](https://proceedings.mlr.press/v70/louizos17a.html). *ICML 2017*.
+8. Goodfellow, I. J., Shlens, J., & Szegedy, C. (2014). [Explaining and Harnessing Adversarial Examples](https://arxiv.org/abs/1412.6572). *arXiv:1412.6572*.
+9. Obermeyer, Z., & Emanuel, E. J. (2016). [Predicting the Future — Big Data, Machine Learning, and Clinical Medicine](https://www.nejm.org/doi/abs/10.1056/NEJMp1606181). *NEJM*.
