@@ -163,13 +163,20 @@ $$\alpha_k = e_k + 1$$
 So when the network has collected zero evidence for all classes (completely uncertain), all $$\alpha_k = 1$$, giving the uniform Dirichlet, the "I do not know" state. As evidence accumulates, the Dirichlet concentrates around a particular class assignment.
 
 <!--- Suggested figure: a 3D simplex showing (1) softmax as a single point on the simplex, and (2) the Dirichlet as a distribution over the simplex, visualised as a density. This would make the "factory of point estimates" idea concrete. -->
-{% include figure.liquid
-  loading="eager"
-  path="assets/img/edl/simplex_compare.png"
-  alt="Softmax as a point estimate and EDL as a distribution over the simplex"
-  caption="A geometric view of first-order versus second-order uncertainty. Softmax returns one probability vector, shown as a single point on the simplex. Evidential Deep Learning instead places a Dirichlet distribution over possible probability vectors, allowing uncertainty to be expressed over the simplex itself."
-  class="img-fluid rounded z-depth-1"
-%}
+<figure style="margin: 2rem 0; text-align: center;">
+  <img
+    src="/assets/img/edl/simplex_compare.png"
+    alt="Softmax as a point estimate vs EDL as a distribution over the simplex"
+    style="width:100%; max-width:700px; border-radius:8px;"
+  />
+  <figcaption style="font-size:0.88rem; color:#666; margin-top:0.6rem;">
+    A geometric view of first-order versus second-order uncertainty. Softmax returns 
+    one probability vector, a single point on the simplex. EDL places a Dirichlet 
+    distribution over possible probability vectors, expressing uncertainty over the 
+    simplex itself.
+  </figcaption>
+</figure>
+
 ---
 
 ## The Math
@@ -280,12 +287,12 @@ Three evaluation axes are used:
     <!-- Left panel -->
     <div style="display:flex; flex-direction:column; gap:0.8rem;">
       <img
-        src="assests/img/edl/cls_probs.pdf"
+        src="assests/img/edl/cls_probs.png"
         alt="Softmax classification probabilities for rotated digit 1 across rotation angles"
         style="width:100%; height:auto; display:block; border:1px solid #e5e7eb; border-radius:10px; background:#fff;"
       />
       <img
-        src="assests/img/edl/rotating.pdf"
+        src="assests/img/edl/rotating.png"
         alt="Sequence of rotated digit 1 images"
         style="width:100%; height:auto; display:block; border:1px solid #e5e7eb; border-radius:10px; background:#fff;"
       />
