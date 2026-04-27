@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Improving Bird Classification with Unsupervised Sound Separation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f4ed;
+  --paper:#fffdf9;
+  --panel:#ffffff;
+  --panel-soft:#f3efe6;
+  --text:#142119;
+  --muted:#5d6d63;
+  --line:#d8d1c3;
+  --accent:#2f6f55;
+  --accent-2:#b9752f;
+  --accent-3:#dfe9e2;
+  --good:#245c45;
+  --shadow:0 18px 38px rgba(20,33,25,.08);
+  --radius:24px;
+  --slide-pad:clamp(28px,4vw,54px);
+  --wrap:1320px;
+  --title:clamp(30px,4.9vw,70px);
+  --h2:clamp(28px,3.2vw,54px);
+  --h3:clamp(20px,2vw,30px);
+  --body:clamp(17px,1.4vw,24px);
+  --small:clamp(13px,1vw,15px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-snap-type:y mandatory;background:var(--bg)}
+body{margin:0;font-family:Inter,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+section.slide{
+  min-height:100vh;
+  scroll-snap-align:start;
+  position:relative;
+  padding:var(--slide-pad);
+  display:flex;
+  align-items:center;
+}
+section.slide::before{
+  content:"";
+  position:absolute;
+  inset:16px;
+  border:1px solid rgba(47,111,85,.08);
+  border-radius:34px;
+  pointer-events:none;
+}
+.wrap{max-width:var(--wrap);margin:0 auto;width:100%;position:relative;z-index:1}
+.kicker{font-size:var(--small);font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+h1,h2,h3{font-family:"Source Serif 4",serif;line-height:1.02;margin:0}
+h1{font-size:var(--title);max-width:9.5ch;letter-spacing:-.03em}
+h2{font-size:var(--h2);letter-spacing:-.025em}
+h3{font-size:var(--h3)}
+p{margin:0;color:var(--muted);font-size:var(--body);line-height:1.45}
+small,.small{font-size:var(--small);color:var(--muted)}
+strong{color:var(--text)}
+.grid{display:grid;gap:24px}
+.grid-2{grid-template-columns:1.08fr .92fr;align-items:center}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.recipe-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:24px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.card.pad{padding:26px}
+.card.soft{background:var(--paper)}
+.card-list{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:10px;color:var(--muted);font-size:16px;line-height:1.28}
+.card-list li{position:relative;padding-left:24px}
+.card-list li::before{content:"";position:absolute;left:0;top:.58em;width:9px;height:9px;border-radius:999px;background:var(--accent)}
+.recipe-card{padding:22px}
+.recipe-card h3{font-size:clamp(24px,2vw,34px)}
+.heading-note{font-family:Inter,sans-serif;font-size:.55em;font-weight:800;color:var(--accent)}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:999px;background:var(--accent-3);color:var(--accent);font-size:var(--small);font-weight:800;border:1px solid rgba(47,111,85,.12)}
+.presenter{margin-top:18px;display:inline-flex;align-items:center;gap:14px;padding:14px 18px;border-radius:18px;background:linear-gradient(135deg,#f1f8f4,#ffffff);border:1px solid rgba(47,111,85,.18);box-shadow:var(--shadow)}
+.presenter .pill{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);font-weight:800}
+.presenter .name{font-size:28px;font-weight:800;color:var(--good);line-height:1}
+.meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px;font-size:var(--small);color:var(--muted)}
+.slide-no{position:absolute;top:26px;right:34px;font-size:14px;font-weight:800;color:var(--muted)}
+.hero-bird{width:100%;aspect-ratio:1.08/1;background:linear-gradient(145deg,#f3efe6,#ffffff);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);display:grid;place-items:center;overflow:hidden}
+.hero-bird img{width:100%;height:100%;object-fit:cover;display:block}
+.attribution{margin-top:10px;font-size:11px;line-height:1.4;color:var(--muted)}
+.attribution a{color:var(--accent)}
+.icon-card{display:flex;gap:18px;align-items:flex-start;padding:28px}
+.icon-box{width:86px;height:86px;border-radius:22px;background:var(--accent-3);border:2px solid rgba(47,111,85,.42);display:grid;place-items:center;flex:0 0 86px;overflow:hidden}
+.icon-box svg{width:34px;height:34px}
+.icon-box img{width:62px;height:62px;object-fit:contain;border-radius:14px}
+.icon-box img[src*="icon-ecology-indicator"],
+.icon-box img[src*="icon-classification-failure"]{width:74px;height:74px}
+.note{padding:18px 20px;border-left:4px solid var(--accent-2);background:#fff8f1;border-radius:18px;color:#6c563b;font-size:16px;line-height:1.45}
+.note strong{color:#68441d}
+.visual-callout{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:center;margin-top:24px;padding:18px 18px 18px 24px;background:#fffaf3;border:1px solid #ead8bd;border-left:4px solid var(--accent-2);border-radius:22px;box-shadow:var(--shadow)}
+.visual-callout img{width:100%;aspect-ratio:16/6;object-fit:cover;border-radius:18px;border:1px solid rgba(185,117,47,.18)}
+.pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:26px}
+.pipeline .step{padding:24px;border-radius:22px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow)}
+.num{width:38px;height:38px;border-radius:999px;background:var(--accent-3);color:var(--accent);display:grid;place-items:center;font-weight:900;font-size:16px;margin-bottom:12px}
+.pipeline p{font-size:16px}
+.diagram-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;margin-top:22px}
+.diagram-wrap.full{grid-template-columns:1fr}
+.diagram{background:linear-gradient(180deg,#fff,#fcfaf5);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:24px}
+.diagram svg{width:100%;height:auto;display:block}
+.diagram img{width:100%;height:auto;display:block;border-radius:20px}
+.diagram.image-only{padding:10px}
+.bullets{display:grid;gap:16px}
+.bullet{display:grid;grid-template-columns:16px 1fr;gap:14px;align-items:flex-start}
+.dot{width:12px;height:12px;border-radius:999px;background:var(--accent);margin-top:9px}
+.mini-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.mini-card{padding:18px;border-radius:20px;border:1px solid var(--line);background:#fff}
+.media-shell{margin-top:24px;background:var(--panel);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:18px}
+.media-shell video,.media-shell audio{width:100%}
+.media-caption{margin-top:10px;font-size:14px;color:var(--muted)}
+.audio-demo{padding:28px;background:linear-gradient(180deg,#fff,#fcfaf5);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow)}
+.audio-demo h3{font-size:30px;margin-bottom:12px}
+.audio-demo p{font-size:18px;margin-bottom:22px}
+.audio-demo video{width:100%;border-radius:18px;border:1px solid var(--line);background:#000}
+.table-wrap{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:14px 16px}
+table{width:100%;border-collapse:collapse;font-size:16px}
+th,td{padding:14px 12px;border-bottom:1px solid #ece6da;text-align:left}
+th{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+tr:last-child td{border-bottom:none}
+.best{font-weight:800;color:var(--good)}
+.second{font-style:italic;color:var(--accent-2)}
+.delta{display:inline-block;margin-left:7px;font-size:12px;font-weight:800;color:var(--muted);white-space:nowrap}
+.delta.up{color:var(--good)}
+.delta.down{color:#9a4f2c}
+.section-row td{background:#f7f4ed;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:800}
+.audio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.audio-card{padding:18px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+.audio-card h3{font-size:20px;margin-bottom:8px}
+.result-callout{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.callout{padding:20px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+.callout h3{font-size:24px;margin-bottom:8px}
+.open-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:26px}
+.question-card{min-height:250px;padding:22px;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:space-between}
+.question-card h3{font-size:24px}
+.question-card .line{height:1px;background:#ece6da;margin-top:22px}
+.nav{position:fixed;right:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:10}
+.nav a{width:11px;height:11px;border-radius:999px;background:#c4ccc7;display:block;transition:transform .25s ease,background-color .25s ease,box-shadow .25s ease}
+.nav a.active{background:var(--accent);transform:scale(1.42);box-shadow:0 0 0 6px rgba(47,111,85,.10)}
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.slide.in-view .fade-up{opacity:1;transform:translateY(0)}
+.slide.in-view .fade-up.delay-1{transition-delay:.08s}
+.slide.in-view .fade-up.delay-2{transition-delay:.16s}
+.slide.in-view .fade-up.delay-3{transition-delay:.24s}
+.slide.in-view .fade-up.delay-4{transition-delay:.32s}
+.legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.swatch{width:14px;height:14px;border-radius:4px;display:inline-block}
+@media (max-width:1080px){
+  .grid-2,.grid-3,.grid-4,.recipe-grid,.diagram-wrap,.pipeline,.audio-grid,.mini-cards,.result-callout,.visual-callout,.open-grid{grid-template-columns:1fr}
+  section.slide{padding:24px}
+  section.slide::before{inset:10px}
+  .slide-no{right:22px;top:18px}
+  .nav{display:none}
+  h1{max-width:12ch}
+}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Slide navigation">
+  <a href="#s1" class="active" title="Title"></a>
+  <a href="#s2" title="Why it matters"></a>
+  <a href="#s3" title="Challenge"></a>
+  <a href="#s8" title="Training recipe"></a>
+  <a href="#s4" title="Pipeline overview"></a>
+  <a href="#s5" title="Step 1"></a>
+  <a href="#s6" title="Step 2"></a>
+  <a href="#s7" title="Step 3"></a>
+  <a href="#s9" title="Results"></a>
+  <a href="#s10" title="Open questions"></a>
+</nav>
+
+<section class="slide in-view" id="s1">
+  <div class="slide-no">01</div>
+  <div class="wrap grid grid-2">
+    <div class="fade-up">
+      <div class="badge">ICASSP 2022 · Google Research</div>
+      <div style="height:18px"></div>
+      <h1>Improving Bird Classification with Unsupervised Sound Separation</h1>
+      <div style="height:18px"></div>
+      <div class="presenter">
+        <div>
+          <div class="pill">Presented by</div>
+          <div class="name">Amitesh Badkul</div>
+        </div>
+      </div>
+      <div class="meta">
+        <span>Paper authors: Tom Denton</span>
+        <span>Scott Wisdom</span>
+        <span>John R. Hershey</span>
+      </div>
+    </div>
+    <div class="fade-up delay-1">
+      <div class="hero-bird" aria-label="Bird image area">
+        <img src="assets/red-vented-bulbul.jpg" alt="Red-vented Bulbul perched on a branch">
+      </div>
+      <div class="attribution">Photo: Amitesh Badkul.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s2">
+  <div class="slide-no">02</div>
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="kicker">Why this matters</div>
+      <h2>Bird sounds carry ecological context</h2>
+    </div>
+    <div class="grid grid-3" style="margin-top:24px">
+      <div class="card icon-card fade-up delay-1">
+        <div class="icon-box" aria-hidden="true">
+          <img src="assets/merlin-logo.png" alt="">
+        </div>
+        <div>
+          <h3>Birdsong Apps</h3>
+          <p>Birding apps can turn a walk into a species list in seconds.</p>
+        </div>
+      </div>
+      <div class="card icon-card fade-up delay-2">
+        <div class="icon-box" aria-hidden="true">
+          <img src="assets/icon-ecology-indicator.png" alt="">
+        </div>
+        <div>
+          <h3>Ecology indicator</h3>
+          <p>Bird presence and absence reveal habitat quality, biodiversity, and ecosystem stress.</p>
+        </div>
+      </div>
+      <div class="card icon-card fade-up delay-3">
+        <div class="icon-box" aria-hidden="true">
+          <img src="assets/icon-classification-failure.png" alt="">
+        </div>
+        <div>
+          <h3>Classification failure</h3>
+          <p>Real recordings contain overlap, wind, insects, and weak labels, so ordinary models miss faint birds.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s3">
+  <div class="slide-no">03</div>
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="kicker">Problem</div>
+      <h2>Why ordinary bird classifiers struggle</h2>
+    </div>
+    <div class="diagram-wrap">
+      <div class="fade-up delay-1">
+        <div class="bullets">
+          <div class="bullet"><div class="dot"></div><div><strong>Loud bird bias.</strong> Many training clips carry one main species label even if other birds are present.</div></div>
+          <div class="bullet"><div class="dot"></div><div><strong>Dawn chorus overlap.</strong> Several species sing together, so the input is a dense acoustic mixture.</div></div>
+          <div class="bullet"><div class="dot"></div><div><strong>Weak background supervision.</strong> Quiet background birds are often unlabeled, so the model learns to ignore them.</div></div>
+        </div>
+      </div>
+      <div class="audio-demo fade-up delay-2">
+        <h3>Listen first</h3>
+        <p>Before the method, this is the intuition: field recordings are dense, noisy, and hard to separate by ear.</p>
+        <video controls preload="metadata">
+          <source src="bird-demo.mp4" type="video/mp4">
+        </video>
+        <div class="media-caption">Demo media from Google Research, stored locally as <code>bird-demo.mp4</code>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s8">
+  <div class="slide-no">04</div>
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="kicker">Training recipe</div>
+      <h2>Data, augmentation, and evaluation setup</h2>
+    </div>
+    <div class="recipe-grid">
+      <div class="card recipe-card fade-up delay-1">
+        <h3>Training data <span class="heading-note">(weakly labeled)</span></h3>
+        <ul class="card-list">
+          <li><strong>Xeno-Canto:</strong> weakly labeled field recordings.</li>
+          <li><strong>Macaulay Library:</strong> preferred recordings in the combined pool.</li>
+          <li><strong>Selection:</strong> high-rated files and background labels preferred.</li>
+          <li><strong>Size:</strong> up to 250 recordings per target species, plus 250 out-of-set recordings.</li>
+        </ul>
+      </div>
+      <div class="card recipe-card fade-up delay-2">
+        <h3>Augmentations</h3>
+        <ul class="card-list">
+          <li>Random 5-second time shift from each 6-second example.</li>
+          <li>Random gain: peak normalized between 0.05 and 0.75.</li>
+          <li>Example mixing with 50% probability.</li>
+          <li>Noise mixing in 75% of examples, 0-40 dB SNR.</li>
+          <li>Random low-pass filtering in mel space.</li>
+        </ul>
+      </div>
+      <div class="card recipe-card fade-up delay-3">
+        <h3>Evaluation sets <span class="heading-note">(Multi-label)</span></h3>
+        <ul class="card-list">
+          <li><strong>Sapsucker Woods:</strong> 40k 5-second segments, 70 species.</li>
+          <li><strong>High Sierras:</strong> 4,928 labeled 5-second segments, 18 species.</li>
+          <li><strong>Caples:</strong> 2,944 labeled 5-second segments, 42 species.</li>
+        </ul>
+      </div>
+      <div class="card recipe-card fade-up delay-4">
+        <h3>Metrics</h3>
+        <ul class="card-list">
+          <li><strong>CMAP:</strong> class-averaged mean average precision.</li>
+          <li><strong>lwlrap:</strong> label-weighted label-ranking average precision.</li>
+          <li><strong>d′:</strong> sensitivity index.</li>
+          <li>Top-1 precision</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note fade-up delay-4" style="margin-top:24px"><strong>Interpretation:</strong> the training recipe tries to reduce shortcut learning from microphone conditions, distance, and background noise.</div>
+  </div>
+</section>
+
+<section class="slide" id="s4">
+  <div class="slide-no">05</div>
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="kicker">Method overview</div>
+      <h2>The pipeline in four moves</h2>
+    </div>
+    <div class="pipeline">
+      <div class="step fade-up delay-1"><div class="num">1</div><h3>Activity detection</h3><p>Pick bird rich 6 second windows from weakly labeled recordings.</p></div>
+      <div class="step fade-up delay-2"><div class="num">2</div><h3>MixIT separation</h3><p>Train an unsupervised separator on mixtures of mixtures.</p></div>
+      <div class="step fade-up delay-3"><div class="num">3</div><h3>Channel classification</h3><p>Run the classifier on each separated output and on the original clip.</p></div>
+      <div class="step fade-up delay-4"><div class="num">4</div><h3>Taxonomy support</h3><p>Use species, genus, family, and order heads to stabilize training.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s5">
+  <div class="slide-no">06</div>
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="kicker">Step 1</div>
+      <h2>Activity detection chooses likely bird rich windows</h2>
+    </div>
+    <div class="diagram-wrap">
+      <div class="diagram image-only fade-up delay-1">
+        <img src="assets/activity-detector-diagram.png" alt="Activity detector workflow diagram">
+      </div>
+      <div class="fade-up delay-2">
+        <div class="bullets">
+          <div class="bullet"><div class="dot"></div><div><strong>Input.</strong> A weakly labeled recording may be long and may contain silence or the wrong source.</div></div>
+          <div class="bullet"><div class="dot"></div><div><strong>Compute energy.</strong> Convert the recording to a log mel spectrogram and measure frame energy.</div></div>
+          <div class="bullet"><div class="dot"></div><div><strong>Find peaks.</strong> Use a wavelet peak detector to identify active frames.</div></div>
+          <div class="bullet"><div class="dot"></div><div><strong>Crop windows.</strong> Extract 6 second regions around the strongest peaks, up to five per recording.</div></div>
+        </div>
+        <div class="mini-cards">
+          <div class="mini-card"><strong>Benefit</strong><div class="small" style="margin-top:8px">Raises the chance that training clips actually contain bird vocalization.</div></div>
+          <div class="mini-card"><strong>Limitation</strong><div class="small" style="margin-top:8px">High energy can still come from wind, insects, other birds, or speech.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s6">
+  <div class="slide-no">07</div>
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="kicker">Step 2</div>
+      <h2>MixIT learns separation without clean source labels</h2>
+    </div>
+    <div class="diagram-wrap full">
+      <div class="diagram image-only fade-up delay-1">
+        <img src="assets/mixit-diagram.png" alt="MixIT mixture of mixtures separation training diagram">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s7">
+  <div class="slide-no">08</div>
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="kicker">Step 3</div>
+      <h2>Classify the separated channels and the original clip</h2>
+    </div>
+    <div class="diagram-wrap full">
+      <div class="diagram image-only fade-up delay-1">
+        <img src="assets/classifier-diagram.png" alt="Classifier combines original and separated channels into species scores">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s9">
+  <div class="slide-no">09</div>
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="kicker">Results</div>
+      <h2>Classification results</h2>
+    </div>
+    <div class="table-wrap fade-up delay-1">
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>CMAP</th>
+            <th>lwlrap</th>
+            <th>d′</th>
+            <th>Top 1</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="section-row"><td colspan="5">Sapsucker Woods · SSW · New York</td></tr>
+          <tr><td>Mix only</td><td class="second">0.304</td><td class="second">0.431</td><td class="second">1.117</td><td class="best">0.398</td></tr>
+          <tr><td>Separation only</td><td>0.268 <span class="delta down">-11.84%</span></td><td>0.413 <span class="delta down">-4.18%</span></td><td>1.116 <span class="delta down">-0.09%</span></td><td>0.360 <span class="delta down">-9.55%</span></td></tr>
+          <tr><td><strong>Mix + separation</strong></td><td class="best">0.306 <span class="delta up">+0.66%</span></td><td class="best">0.441 <span class="delta up">+2.32%</span></td><td class="best">1.123 <span class="delta up">+0.54%</span></td><td class="second">0.397 <span class="delta down">-0.25%</span></td></tr>
+
+          <tr class="section-row"><td colspan="5">Caples Watershed · CAP · Lake Tahoe</td></tr>
+          <tr><td>Mix only</td><td class="second">0.334</td><td>0.569</td><td>1.144</td><td>0.496</td></tr>
+          <tr><td>Separation only</td><td>0.327 <span class="delta down">-2.10%</span></td><td class="second">0.581 <span class="delta up">+2.11%</span></td><td class="second">1.154 <span class="delta up">+0.87%</span></td><td class="second">0.506 <span class="delta up">+2.02%</span></td></tr>
+          <tr><td><strong>Mix + separation</strong></td><td class="best">0.341 <span class="delta up">+2.10%</span></td><td class="best">0.590 <span class="delta up">+3.69%</span></td><td class="best">1.155 <span class="delta up">+0.96%</span></td><td class="best">0.517 <span class="delta up">+4.23%</span></td></tr>
+
+          <tr class="section-row"><td colspan="5">High Sierras · HSN · Dawn chorus</td></tr>
+          <tr><td>Mix only</td><td>0.527</td><td>0.531</td><td class="second">1.149</td><td>0.432</td></tr>
+          <tr><td>Separation only</td><td class="second">0.548 <span class="delta up">+3.98%</span></td><td class="second">0.548 <span class="delta up">+3.20%</span></td><td class="second">1.149 <span class="delta">+0.00%</span></td><td class="second">0.448 <span class="delta up">+3.70%</span></td></tr>
+          <tr><td><strong>Mix + separation</strong></td><td class="best">0.560 <span class="delta up">+6.26%</span></td><td class="best">0.560 <span class="delta up">+5.46%</span></td><td class="best">1.153 <span class="delta up">+0.35%</span></td><td class="best">0.451 <span class="delta up">+4.40%</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s10">
+  <div class="slide-no">10</div>
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="kicker">Discussion</div>
+      <h2>Thoughts / Open Questions</h2>
+    </div>
+    <div class="open-grid">
+      <div class="question-card fade-up delay-1">
+        <h3>Could this method help with unseen species or open-set recognition?</h3>
+        <div class="line"></div>
+      </div>
+      <div class="question-card fade-up delay-2">
+        <h3>Why is High Sierras the strongest-performing dataset despite being a dawn-chorus setting?</h3>
+        <div class="line"></div>
+      </div>
+      <div class="question-card fade-up delay-3">
+        <h3>Can separation be integrated into classifier training, instead of only being used at inference?</h3>
+        <div class="line"></div>
+      </div>
+      <div class="question-card fade-up delay-4">
+        <h3>Why does separation sometimes hurt the most prominent species?</h3>
+        <div class="line"></div>
+      </div>
+      <div class="question-card fade-up delay-4">
+        <h3>Why was this line of work not pushed further more directly?</h3>
+        <div class="line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+const slides = [...document.querySelectorAll('.slide')];
+const navLinks = [...document.querySelectorAll('.nav a')];
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      const id = '#' + entry.target.id;
+      navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === id));
+    }
+  });
+}, { threshold: 0.45 });
+slides.forEach(slide => observer.observe(slide));
+</script>
+</body>
+</html>

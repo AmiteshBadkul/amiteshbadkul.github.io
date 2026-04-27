@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640">
+  <rect width="1000" height="640" rx="42" fill="#fffdf9"/>
+  <rect x="58" y="66" width="560" height="360" rx="28" fill="#f7f4ed" stroke="#d8d1c3" stroke-width="4"/>
+  <g opacity=".95">
+    <rect x="90" y="338" width="16" height="52" fill="#2f6f55" opacity=".32"/>
+    <rect x="122" y="246" width="16" height="144" fill="#2f6f55" opacity=".56"/>
+    <rect x="154" y="292" width="16" height="98" fill="#2f6f55" opacity=".36"/>
+    <rect x="212" y="152" width="20" height="238" fill="#2f6f55"/>
+    <rect x="244" y="128" width="20" height="262" fill="#2f6f55"/>
+    <rect x="276" y="170" width="20" height="220" fill="#2f6f55" opacity=".86"/>
+    <rect x="352" y="272" width="16" height="118" fill="#b9752f" opacity=".45"/>
+    <rect x="390" y="318" width="16" height="72" fill="#2f6f55" opacity=".25"/>
+    <rect x="462" y="106" width="20" height="284" fill="#2f6f55" opacity=".92"/>
+    <rect x="494" y="148" width="20" height="242" fill="#2f6f55" opacity=".75"/>
+    <rect x="542" y="300" width="16" height="90" fill="#b9752f" opacity=".38"/>
+  </g>
+  <path d="M80 454h520" stroke="#d8d1c3" stroke-width="4"/>
+  <text x="82" y="506" font-family="Inter, Arial" font-size="28" font-weight="800" fill="#2f6f55">Noisy dawn recording</text>
+  <text x="82" y="546" font-family="Inter, Arial" font-size="22" fill="#5d6d63">One loud labeled bird, faint overlapping birds, wind/insects</text>
+  <rect x="674" y="94" width="260" height="380" rx="30" fill="#f6fbf8" stroke="#d8d1c3" stroke-width="4"/>
+  <text x="714" y="146" font-family="Inter, Arial" font-size="30" font-weight="800" fill="#142119">Ordinary classifier</text>
+  <rect x="714" y="190" width="180" height="34" rx="17" fill="#2f6f55"/>
+  <rect x="714" y="250" width="104" height="34" rx="17" fill="#dfe9e2"/>
+  <rect x="714" y="310" width="70" height="34" rx="17" fill="#dfe9e2"/>
+  <text x="714" y="224" font-family="Inter, Arial" font-size="20" fill="#142119" transform="translate(0 -42)">Loud species</text>
+  <text x="714" y="284" font-family="Inter, Arial" font-size="20" fill="#5d6d63" transform="translate(0 -42)">Faint species A</text>
+  <text x="714" y="344" font-family="Inter, Arial" font-size="20" fill="#5d6d63" transform="translate(0 -42)">Faint species B</text>
+  <circle cx="892" cy="366" r="44" fill="#fff4ea" stroke="#b9752f" stroke-width="10"/>
+  <path d="M892 340v34" stroke="#b9752f" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="892" cy="392" r="6" fill="#b9752f"/>
+  <path d="M628 248h70" stroke="#b9752f" stroke-width="8" stroke-linecap="round"/>
+  <path d="M680 222l32 26-32 26" fill="none" stroke="#b9752f" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
