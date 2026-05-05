@@ -24,6 +24,10 @@ Hi! I’m a second-year PhD student in **Computer Science** under the guidance o
 - **Multi-modal Representation Learning for Proteins and Chemicals**: Developing models to integrate diverse biological and chemical data and correlate these models to actual biological insights.
 - **Out-of-Distribution Generalization for Drug Discovery**: Ensuring AI models perform effectively even on data distributions beyond their training sets for improved applicability in real-world.
 
+<div id="bubble-cloud-container" style="width:100%; margin: 2rem 0 1rem 0; border-radius: 12px; overflow: hidden;"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js" integrity="sha512-eKoFSGBHHFBMIbHLKTxbFRTYc0w5iqhE1R5M6DI1YBOKaQ9JZu0VjlGa+6JTCJlO35b8fKEr5Gk0LMTQ/AQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/assets/js/bubble-cloud.js"></script>
+
 <!--### Academic and Personal Background
 
 I earned my undergraduate degree in **Electrical and Electronics Engineering** and masters degree in **Chemistry** from [BITS Pilani, Hyderabad](https://www.bits-pilani.ac.in/hyderabad/). My academic journey has cultivated a deep fascination for **Machine Learning, Deep Learning**, and their transformative applications in **Biology** and **Chemistry**. I’ve also explored the realms of **Molecular Dynamics Simulations**, helping me broaden my scientific perspective.
