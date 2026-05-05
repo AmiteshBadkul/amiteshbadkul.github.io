@@ -2,6 +2,30 @@ document.addEventListener('DOMContentLoaded', function () {
   var container = document.getElementById('bubble-cloud-container');
   if (!container) return;
 
+  function getCSSVar(name, fallback) {
+    try {
+      var v = getComputedStyle(document.documentElement).getPropertyValue(name);
+      if (v) {
+        var s = v.trim();
+        if (s) return s;
+      }
+    } catch (_) {}
+    return fallback;
+  }
+
+  function setStatus(html) {
+    var status = document.getElementById('bubble-cloud-status');
+    if (status) status.innerHTML = html;
+  }
+
+  try {
+    setStatus('<strong>Bubble cloud:</strong> initializing…');
+
+    if (typeof window.d3 === 'undefined') {
+      setStatus('<strong>Bubble cloud:</strong> failed (D3.js did not load).');
+      return;
+    }
+
   // ── Node data ──────────────────────────────────────────────────────────────
   // group 1 = Drug Discovery / Biology  (green)
   // group 2 = ML / CS                   (blue)
@@ -42,12 +66,16 @@ document.addEventListener('DOMContentLoaded', function () {
     { id: 'Sports',                      group: 4, r: 16 },
   ];
 
-  // ── Colour scale ───────────────────────────────────────────────────────────
+  // ── Colour scale (user palette) ────────────────────────────────────────────
+  // Provided palette:
+  // "#f0c2a5", "#1b6c6b", "#d4a843", "#e17941", "#7c5ea8"
+  //
+  // Map 4 groups onto 4 of the 5 colours; keep the 5th as an accent.
   var palette = {
-    1: { fill: '#b7e4c7', stroke: '#52b788' },  // green
-    2: { fill: '#a1c4fd', stroke: '#4a90d9' },  // blue
-    3: { fill: '#ffecd2', stroke: '#f4a261' },  // amber
-    4: { fill: '#ffc8dd', stroke: '#e06c94' },  // pink
+    1: { fill: '#f0c2a5', stroke: '#e17941' },  // Drug Discovery / Biology (peach + orange stroke)
+    2: { fill: '#1b6c6b', stroke: '#1b6c6b' },  // ML / CS (teal)
+    3: { fill: '#d4a843', stroke: '#b88f24' },  // Affiliation (gold)
+    4: { fill: '#7c5ea8', stroke: '#6a4e92' },  // Personal (purple)
   };
 
   // ── SVG setup ──────────────────────────────────────────────────────────────
@@ -89,34 +117,37 @@ document.addEventListener('DOMContentLoaded', function () {
     var line2 = words.length > 1 ? words.slice(Math.ceil(words.length / 2)).join(' ') : null;
     var fs = Math.max(9, Math.min(13, d.r * 0.52));
 
+    var fontFamily = getCSSVar('--global-font-family', 'system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif');
+    var textColor = getCSSVar('--global-text-color', '#222');
+
     if (line2 && words.length > 2) {
       el.append('text')
         .attr('text-anchor', 'middle')
         .attr('dy', '-0.35em')
         .attr('font-size', fs + 'px')
-        .attr('font-family', 'Arial, sans-serif')
-        .attr('fill', '#222')
+        .attr('font-family', fontFamily)
+        .attr('fill', textColor)
         .style('pointer-events', 'none')
-        .style('text-shadow', '0 0 3px rgba(255,255,255,0.9), 0 0 3px rgba(255,255,255,0.9)')
+        .style('text-shadow', '0 0 3px rgba(255,255,255,0.85), 0 0 3px rgba(255,255,255,0.85)')
         .text(line1);
       el.append('text')
         .attr('text-anchor', 'middle')
         .attr('dy', '0.85em')
         .attr('font-size', fs + 'px')
-        .attr('font-family', 'Arial, sans-serif')
-        .attr('fill', '#222')
+        .attr('font-family', fontFamily)
+        .attr('fill', textColor)
         .style('pointer-events', 'none')
-        .style('text-shadow', '0 0 3px rgba(255,255,255,0.9), 0 0 3px rgba(255,255,255,0.9)')
+        .style('text-shadow', '0 0 3px rgba(255,255,255,0.85), 0 0 3px rgba(255,255,255,0.85)')
         .text(line2);
     } else {
       el.append('text')
         .attr('text-anchor', 'middle')
         .attr('dy', '0.35em')
         .attr('font-size', fs + 'px')
-        .attr('font-family', 'Arial, sans-serif')
-        .attr('fill', '#222')
+        .attr('font-family', fontFamily)
+        .attr('fill', textColor)
         .style('pointer-events', 'none')
-        .style('text-shadow', '0 0 3px rgba(255,255,255,0.9), 0 0 3px rgba(255,255,255,0.9)')
+        .style('text-shadow', '0 0 3px rgba(255,255,255,0.85), 0 0 3px rgba(255,255,255,0.85)')
         .text(d.id);
     }
   });
@@ -158,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
       .attr('x', 16)
       .attr('dy', '0.35em')
       .attr('font-size', '10px')
-      .attr('font-family', 'Arial, sans-serif')
+      .attr('font-family', getCSSVar('--global-font-family', 'system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif'))
       .attr('fill', 'var(--global-text-color, #555)')
       .text(item.label);
   });
@@ -177,5 +208,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!event.active) simulation.alphaTarget(0);
         d.fx = null; d.fy = null;
       });
+  }
+
+  setStatus('<strong>Bubble cloud:</strong> ready (drag bubbles).');
+  } catch (err) {
+    var msg = (err && (err.stack || err.message)) ? (err.stack || err.message) : String(err);
+    setStatus('<strong>Bubble cloud:</strong> failed (runtime error).<br /><pre style="white-space: pre-wrap; margin: 0.5rem 0 0 0;">' + msg + '</pre>');
   }
 });

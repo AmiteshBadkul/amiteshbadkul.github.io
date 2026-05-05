@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Improving Bird Classification with Unsupervised Sound Separation
-date: 2026-04-27 10:00:00-0400
+date: 2026-04-26 10:00:00-0400
 description: Embedded presentation for the ICASSP 2022 paper on improving bird classification with unsupervised sound separation.
 tags: birds audio ml presentation icassp
 categories: presentations

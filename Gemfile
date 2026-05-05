@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
+
+# Ruby 4+ no longer ships `ostruct` as a default gem, but `jekyll-twitter-plugin`
+# requires it.
+gem 'ostruct'
 group :jekyll_plugins do
     gem 'jekyll'
     gem 'jekyll-archives'
