@@ -1,5 +1,23 @@
 ---
 ---
+@article{badkul2026drugptm,
+  title={DrugPTM-Bench: A Large-Scale Dataset for Predictive Modeling of Drug-Induced Cell Type-Specific Protein Post-Translational Modifications},
+  author={Badkul, Amitesh and Mottaqi, Mohammadsadeq and Xie, Li and Xie, Lei},
+  journal={bioRxiv},
+  pages={2026--04},
+  year={2026},
+  publisher={Cold Spring Harbor Laboratory},
+  doi = {10.64898/2026.04.27.721113}, 
+  pdf = {https://www.biorxiv.org/content/10.64898/2026.04.27.721113v1.full.pdf},
+  url = {https://www.biorxiv.org/content/10.64898/2026.04.27.721113v1},
+  abstract = {Protein post-translational modifications (PTMs), particularly phosphorylation, serve as the primary “molecular switches” that orchestrate cellular signaling and drug response. While PTM dysregulation is a hallmark of cancer and neurodegeneration, the lack of standardized, drug-perturbed datasets has hindered the development of predictive models capable of capturing context-dependent PTM responses. Effective predictive modeling must therefore integrate multidimensional data, including the specific drug, dosage, treatment duration, cellular background, and the modified site. However, existing PTM resources remain largely static and fail to capture drug-induced regulation across these critical dimensions. To address this gap, we present DrugPTM-Bench, a curated, large-scale benchmark derived from decryptM-derived dose-dependent PTM measurements, standardizing site-level drug response across 7 cancer cell lines, 27 drugs, and 11,167 proteins. Comprising 99.5% phosphorylation events, the dataset includes six time points, 16 dosage levels, and pEC50 potency values (half-maximal effective concentration). We formulate a classification task to identify upregulated, downregulated, or unchanged PTM sites (following a drug treatment), a critical step in deciphering drug Mechanism of Action (MoA) and target engagement. Our evaluation reveals that in protein-disjoint out-of-distribution (OOD) setting, baseline machine learning and deep learning models struggle to recover minority regulation classes, while standard rebalancing strategies improve recall only at the cost of precision and overall F1-score. These results indicate that current methods do not learn robust decision boundaries between regulated and unchanged PTM events. DrugPTM-Bench provides a phosphoproteomics benchmark for modeling drug-induced PTM regulation in imbalanced biological settings. Beyond classification, DrugPTM-Bench’s retention of pEC50 values, drug perturbation profiles, and site-level sequence context enables additional predictive tasks including drug potency regression, mechanism-of-action prediction from PTM fingerprints, and drug-specific PTM site sensitivity ranking, establishing a multi-task benchmark for PTM-centric drug discovery. Ultimately, DrugPTM-Bench establishes a rigorous framework for developing robust, context-aware models to elucidate drug MoA and signaling dynamics.},
+  preview = {drugptm-bench.png},
+  journal = {bioRxiv}
+
+  
+}
+
+
 @article {Agrawal2026.01.05.697809,
 	author = {Agrawal, Shreyansh and Anadkat, Harsh and Athimoolam, Kiran and Bhardwaj, Harsh and Chowdhury, Trishul and Gao, Shengtao and Kamat, Purva and Makwana, Vishwadeepsinh and Shariff, Mohammed and Badkul, Amitesh and Xie, Lei and Sinitskiy, Anton},
 	title = {Can AI Conduct Autonomous Scientific Research? Case Studies on Two Real-World Tasks},
