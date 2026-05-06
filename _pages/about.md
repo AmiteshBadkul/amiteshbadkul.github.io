@@ -49,8 +49,8 @@ Hi! I’m a second-year PhD student in **Computer Science** under the guidance o
       '</div>';
   })();
 </script>
-<script src="/assets/js/lib/d3.v7.min.js"></script>
-<script src="/assets/js/bubble-cloud.js"></script>
+<script src="{{ '/assets/js/lib/d3.v7.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/bubble-cloud.js' | relative_url }}"></script>
 
 <!--### Academic and Personal Background
 
