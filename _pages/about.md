@@ -49,7 +49,7 @@ Hi! I’m a second-year PhD student in **Computer Science** under the guidance o
       '</div>';
   })();
 </script>
-<script src="/assets/js/vendor/d3.v7.min.js"></script>
+<script src="/assets/js/lib/d3.v7.min.js"></script>
 <script src="/assets/js/bubble-cloud.js"></script>
 
 <!--### Academic and Personal Background
