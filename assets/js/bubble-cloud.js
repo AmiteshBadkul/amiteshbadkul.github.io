@@ -68,6 +68,9 @@ document.addEventListener('DOMContentLoaded', function () {
       stroke: '#1b6c6b',
       label: '#ffffff',
       labelShadow: '0 0 2px rgba(0,0,0,0.35), 0 1px 3px rgba(0,0,0,0.4)',
+      // When hovered / pinned (active), switch to black type for readability on bright teal
+      labelActive: '#0d0d0d',
+      labelShadowActive: '0 0 3px rgba(255,255,255,0.95), 0 0 8px rgba(255,255,255,0.85), 0 1px 2px rgba(255,255,255,0.9)',
     },
     3: {
       fill: '#edd078',
@@ -215,9 +218,19 @@ document.addEventListener('DOMContentLoaded', function () {
         .attr('stroke', isOn ? '#ffffff' : palette[d.group].stroke)
         .attr('filter', isOn ? 'url(#bubble-glow)' : null);
 
+      var pal = palette[d.group];
+      var labelFill = pal.label;
+      var labelShadow = pal.labelShadow;
+      if (d.group === 2 && isOn) {
+        labelFill = pal.labelActive;
+        labelShadow = pal.labelShadowActive;
+      }
+
       g.selectAll('text.bubble-label')
         .attr('opacity', dim ? 0.22 : 1)
-        .style('font-weight', isOn ? 600 : 400);
+        .style('font-weight', isOn ? 600 : 400)
+        .attr('fill', labelFill)
+        .style('text-shadow', labelShadow);
     });
     updateTransforms();
     updateStatusLine();
