@@ -257,7 +257,17 @@ ninja-keys {
   --ninja-secondary-text-color: var(--global-text-color-light);
   --ninja-footer-background: var(--global-card-bg-color);
   --ninja-selected-background: var(--global-code-bg-color);
-  --ninja-z-index: 1050;
+  --ninja-selected-text-color: var(--global-text-color);
+  --ninja-icon-size: 0px;
+  --ninja-z-index: 1031;
+}
+
+ninja-keys::part(ninja-input) {
+  color: var(--ninja-selected-text-color);
+}
+
+ninja-keys::part(ninja-input-wrapper) {
+  background: var(--global-bg-color);
 }
 
 // Social (bottom)
@@ -667,5 +677,124 @@ html.transition *:after {
       border-left: 5px solid var(--global-theme-color);
       padding: 8px;
     }
+  }
+}
+
+// Scroll progress (under fixed navbar; top adjusted in progress-bar.js)
+progress {
+  position: fixed;
+  left: 0;
+  top: 57px;
+  z-index: 10;
+  width: 100%;
+  height: 1px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  color: var(--global-theme-color);
+}
+
+progress::-webkit-progress-bar {
+  background-color: transparent;
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--global-theme-color);
+}
+
+progress::-moz-progress-bar {
+  background-color: var(--global-theme-color);
+}
+
+.progress-container {
+  width: 100%;
+  background-color: transparent;
+  position: fixed;
+  top: 57px;
+  left: 0;
+  height: 5px;
+  display: block;
+}
+
+.progress-bar {
+  background-color: var(--global-theme-color);
+  width: 0%;
+  display: block;
+  height: inherit;
+}
+
+// Bookshelf cover grid
+figure.cover {
+  display: inline-block;
+  text-align: center;
+  margin: 0.5rem;
+
+  img {
+    vertical-align: bottom;
+  }
+
+  figcaption.abandoned {
+    font-family: monospace;
+    color: #23212d;
+    text-transform: uppercase;
+    background-color: #ee5f5b;
+  }
+
+  figcaption.finished,
+  figcaption.watched {
+    font-family: monospace;
+    color: #23212d;
+    text-transform: uppercase;
+    background-color: #62c462;
+  }
+
+  figcaption.interested {
+    font-family: monospace;
+    color: #23212d;
+    text-transform: uppercase;
+    background-color: #7691db;
+  }
+
+  figcaption.paused {
+    font-family: monospace;
+    color: #23212d;
+    text-transform: uppercase;
+    background-color: #bdac7e;
+  }
+
+  figcaption.queued {
+    font-family: monospace;
+    color: #23212d;
+    text-transform: uppercase;
+    background-color: #9e76b5;
+  }
+
+  figcaption.reading,
+  figcaption.watching {
+    font-family: monospace;
+    color: #23212d;
+    text-transform: uppercase;
+    background-color: #f89406;
+  }
+
+  figcaption.reread,
+  figcaption.rewatch {
+    font-family: monospace;
+    color: #23212d;
+    text-transform: uppercase;
+    background-color: #a6517d;
+  }
+
+  figcaption.uncategorized {
+    font-family: monospace;
+    color: #23212d;
+    text-transform: uppercase;
+    background-color: #b0abb3;
+  }
+
+  a.cover-link:hover {
+    color: #23212d !important;
   }
 }

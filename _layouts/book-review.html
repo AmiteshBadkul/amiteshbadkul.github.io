@@ -1,0 +1,229 @@
+---
+layout: default
+---
+{% assign year = page.started | date: '%Y' %}
+{% assign tags = page.tags | join: '' %}
+{% assign categories = page.categories | join: '' %}
+
+{% if page._styles %}
+  <style type="text/css">
+    {{ page._styles }}
+  </style>
+{% endif %}
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.author or page.released %}
+      <p class="post-meta">
+        {% if page.author %}
+          {{ page.author }}
+        {% endif %}
+        {% if page.author and page.released %} &nbsp;&middot;&nbsp; {% endif %}
+        {% if page.released %}
+          {{ page.released }}
+        {% endif %}
+      </p>
+    {% endif %}
+
+    {% if page.started or page.finished or page.stars %}
+      <p class="post-meta">
+        {% if page.started %}
+          <i class="fas fa-play fa-sm" style="color: var(--global-tip-block) !important"></i> <em>{{ page.started }}</em>
+        {% endif %}
+        {% if page.finished %}
+          {% if page.started %}
+            &nbsp;&middot;&nbsp;
+          {% endif %}
+          <i class="fas fa-stop fa-sm" style="color: #e56565 !important"></i> <em>{{ page.finished }}</em>
+        {% endif %}
+        {% if page.stars %}
+          {% if page.started or page.finished %}
+            &nbsp;&middot;&nbsp;
+          {% endif %}
+          {% if page.goodreads_review %}
+            <a target="_blank" rel="noopener noreferrer" href="https://www.goodreads.com/review/show/{{ page.goodreads_review }}"><i class="fab fa-goodreads-g"></i>
+          {% endif %}
+          {% assign full_stars = page.stars | floor %}
+          {% assign half_star = page.stars | minus: full_stars %}
+          {% assign empty_stars = 5 | minus: full_stars %}
+          {% if half_star > 0 %}
+            {% assign empty_stars = empty_stars | minus: 1 %}
+          {% endif %}
+          {% for i in (1..full_stars) -%}
+            <i class="fas fa-star fa-sm"></i>
+          {%- endfor -%}
+          {%- if half_star > 0 %}<i class="fas fa-star-half-alt fa-sm"></i>{% endif -%}
+          {%- for i in (1..empty_stars) -%}
+            <i class="far fa-star fa-sm"></i>
+          {%- endfor -%}
+          {% if page.goodreads_review %}
+            </a>
+          {% endif %}
+        {% endif %}
+        {% if page.buy_link %}
+          {% if page.started or page.finished or page.stars %}
+            &nbsp;&middot;&nbsp;
+          {% endif %}
+          <a target="_blank" rel="noopener noreferrer" href="{{ page.buy_link }}"
+            ><i class="fas fa-shopping-cart"></i>
+            {% assign is_amazon_link = page.buy_link | slice: 0, 19 %}
+            {% if is_amazon_link == 'https://www.amazon.' %}
+              <i class="fab fa-amazon"></i>
+            {% endif %}
+          </a>
+        {% endif %}
+      </p>
+    {% endif %}
+    <p class="post-tags">
+      <a href="{{ '/books/' | relative_url }}#y{{ year }}"> <i class="fas fa-calendar fa-sm"></i> {{ year }}</a>
+      {% if tags != '' %}
+        &nbsp;&middot;&nbsp;
+        {% for tag in page.tags %}
+          <span class="text-muted"><i class="fas fa-hashtag fa-sm"></i> {{ tag }}</span>
+          {% unless forloop.last %}
+            &nbsp;
+          {% endunless %}
+        {% endfor %}
+      {% endif %}
+
+      {% if categories != '' %}
+        &nbsp;&middot;&nbsp;
+        {% for category in page.categories %}
+          <span class="text-muted"><i class="fas fa-tag fa-sm"></i> {{ category }}</span>
+          {% unless forloop.last %}
+            &nbsp;
+          {% endunless %}
+        {% endfor %}
+      {% endif %}
+    </p>
+    <hr>
+  </header>
+
+  <article>
+    {% if content == '' %}
+      <figure class="empty-review">
+        {% if page.cover %}
+          <img class="empty-review-cover" alt="{{ page.title | escape }} cover" src="{{ page.cover | relative_url }}">
+          <figcaption class="empty-review-caption">
+            Cover of <em>{{ page.title }}</em>
+          </figcaption>
+        {% elsif page.olid %}
+          <img
+            class="empty-review-cover"
+            alt="{{ page.title | escape }} cover"
+            src="https://covers.openlibrary.org/b/olid/{{ page.olid }}-L.jpg?default=false"
+          >
+          <figcaption class="empty-review-caption">
+            Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/olid/{{ page.olid }}">Open Library</a>.
+          </figcaption>
+        {% elsif page.isbn %}
+          <img
+            class="empty-review-cover"
+            alt="{{ page.title | escape }} cover"
+            src="https://covers.openlibrary.org/b/isbn/{{ page.isbn }}-L.jpg?default=false"
+          >
+          <figcaption class="empty-review-caption">
+            Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/isbn/{{ page.isbn }}">Open Library</a>.
+          </figcaption>
+        {% endif %}
+      </figure>
+      {% assign status = page.status | upcase %}
+      <div class="clearfix">
+        <h4>{{ status }}</h4>
+      </div>
+    {% else %}
+      <figure>
+        {% if page.cover %}
+          <img alt="{{ page.title | escape }} cover" src="{{ page.cover | relative_url }}">
+          <figcaption>
+            Cover of <em>{{ page.title }}</em>
+          </figcaption>
+        {% elsif page.olid %}
+          <img alt="{{ page.title | escape }} cover" src="https://covers.openlibrary.org/b/olid/{{ page.olid }}-L.jpg?default=false">
+          <figcaption>
+            Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/olid/{{ page.olid }}">Open Library</a>.
+          </figcaption>
+        {% elsif page.isbn %}
+          <img alt="{{ page.title | escape }} cover" src="https://covers.openlibrary.org/b/isbn/{{ page.isbn }}-L.jpg?default=false">
+          <figcaption>
+            Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/isbn/{{ page.isbn }}">Open Library</a>.
+          </figcaption>
+        {% endif %}
+      </figure>
+      <br class="mobile-break" clear="right">
+      <h4>
+        {% if page.start %} Start Date: {{ page.start | date: '%-d %B %Y' }}. {% endif %}
+        {% if page.end %} End Date: {{ page.end | date: '%-d %B %Y' }}. {% endif %}
+      </h4>
+      {{ content }}
+    {% endif %}
+  </article>
+</div>
+
+<style>
+      figure {
+        float: none;
+        width: auto;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+      }
+      figure > img {
+        vertical-align: top;
+        display: block;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 0px;
+      }
+      figure figcaption {
+        display: block;
+        caption-side: bottom;
+        text-align: center;
+      }
+
+      @media screen and (min-width: 600px) {
+        .empty-review {
+          float: left;
+          display: block;
+          margin: 0px;
+          padding: 0px 0px 0px 20px;
+        }
+
+        .empty-review-caption {
+          caption-side: left;
+          text-align: left;
+        }
+
+        .empty-review-cover {
+          width: 250px;
+          vertical-align: top;
+          padding-right: 40px;
+        }
+
+        figure {
+          float: right;
+          display: block;
+          margin: 0px;
+          padding: 0px 0px 0px 20px;
+        }
+
+        figure img {
+          width: 300px;
+          vertical-align: top;
+        }
+
+        figure figcaption {
+          caption-side: bottom;
+          text-align: left;
+        }
+
+        .mobile-break { display: none; }
+
+        blockquote {
+          position: relative;
+          margin: 0px;
+          display: table;
+        }
+      }
+</style>
