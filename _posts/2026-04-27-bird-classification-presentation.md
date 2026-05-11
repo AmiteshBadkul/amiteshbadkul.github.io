@@ -11,7 +11,7 @@ related_posts: false
 
 This post embeds my presentation for **"Improving Bird Classification with Unsupervised Sound Separation"**.
 
-[Open the presentation in a separate tab](/assets/presentations/bird-classification/bird-classification-presentation-enhanced-v2.html){:target="_blank" rel="noopener noreferrer"}
+[Open the presentation in a separate tab](/assets/presentations/bird-classification/bird-classification-presentation-enhanced-v2.html){:target="_blank" rel="noopener noreferrer"}. In that view, **Save as PDF…** (top-left) opens the print dialog; choose *Save as PDF* and turn on background graphics if colors look faded. Exporting from the embed below can include the rest of the site in some browsers, so prefer a separate tab for PDFs.
 
 <div style="margin: 1.5rem 0; border: 1px solid var(--global-divider-color); border-radius: 12px; overflow: hidden; background: #fff;">
   <iframe

@@ -7,9 +7,9 @@ isbn: 9781496727169
 released: 2021
 date: 2026-05-01
 started: 2026-05-02
-status: Reading
+status: 2026-05-10
 tags: [thriller]
 categories: [fiction]
 ---
 
-*(In progress.)*
+I loved the way the mystery unfolded, I was trying to solve along but ultimately could predict only a thing or two about the plot twists. Thoroughly enjoyed the characters, especially our protagonist Avery Manson, and our detective Walter Jenkins. 

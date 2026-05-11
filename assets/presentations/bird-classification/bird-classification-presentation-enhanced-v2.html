@@ -155,9 +155,61 @@ tr:last-child td{border-bottom:none}
   .nav{display:none}
   h1{max-width:12ch}
 }
+
+/* ---- Screen-only: export to PDF (uses system print → Save as PDF) ---- */
+.deck-toolbar{
+  position:fixed;left:18px;top:18px;z-index:20;
+  display:flex;flex-wrap:wrap;gap:8px;align-items:center;max-width:min(420px,calc(100vw - 36px));
+}
+.deck-toolbar__btn{
+  font-family:Inter,sans-serif;font-size:13px;font-weight:700;
+  color:var(--good);background:var(--paper);
+  border:1px solid var(--line);border-radius:999px;padding:10px 16px;cursor:pointer;box-shadow:var(--shadow);
+}
+.deck-toolbar__btn:hover{background:#fff;border-color:rgba(47,111,85,.35)}
+.deck-toolbar__btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.deck-toolbar__hint{font-size:11px;font-weight:600;color:var(--muted);max-width:260px;line-height:1.35;display:none}
+@media (min-width:700px){.deck-toolbar__hint{display:block}}
+
+@media print{
+  @page{
+    size:landscape;
+    margin:10mm;
+  }
+  html{scroll-snap-type:none}
+  body{
+    background:#fffdf9 !important;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+    color-adjust:exact;
+  }
+  .nav,.deck-toolbar{display:none !important}
+  section.slide{
+    min-height:100vh;
+    height:auto;
+    page-break-after:always;
+    break-after:page;
+    page-break-inside:avoid;
+    break-inside:avoid;
+  }
+  section.slide:last-of-type{
+    page-break-after:auto;
+    break-after:auto;
+  }
+  /* Animations only reveal content when .in-view; printing must show every slide */
+  .slide .fade-up{
+    opacity:1 !important;
+    transform:none !important;
+    transition:none !important;
+  }
+}
 </style>
 </head>
 <body>
+<div class="deck-toolbar" role="region" aria-label="Export">
+  <button type="button" class="deck-toolbar__btn" id="export-pdf-btn" title="Opens print. Choose Save as PDF; enable background graphics if the preview looks faded.">Save as PDF…</button>
+  <span class="deck-toolbar__hint">Print dialog → Save as PDF. Turn on background graphics for correct colors.</span>
+</div>
 <nav class="nav" aria-label="Slide navigation">
   <a href="#s1" class="active" title="Title"></a>
   <a href="#s2" title="Why it matters"></a>
@@ -472,6 +524,10 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.45 });
 slides.forEach(slide => observer.observe(slide));
+
+document.getElementById('export-pdf-btn')?.addEventListener('click', () => {
+  window.print();
+});
 </script>
 </body>
 </html>
