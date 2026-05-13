@@ -7,7 +7,8 @@ isbn: 9781496727169
 released: 2021
 date: 2026-05-01
 started: 2026-05-02
-status: 2026-05-10
+finished: 2026-05-10
+status:Finished
 tags: [thriller]
 categories: [fiction]
 ---
