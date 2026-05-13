@@ -8,7 +8,8 @@ released: 2021
 date: 2026-05-01
 started: 2026-05-02
 finished: 2026-05-10
-status:Finished
+stars: 5
+status: Finished
 tags: [thriller]
 categories: [fiction]
 ---
